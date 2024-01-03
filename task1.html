@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+
+</head>
+<body>
+    <p id="test1">Text to be changed...</p>
+    Enter Message to display :<input type="text" id="input">
+    <button type="button" onclick="display()">Display</button>
+    <script>
+        function display() {
+            var input = document.getElementById("input");
+            var output = input.value;
+            document.getElementById("test1").innerHTML = output;
+
+        }
+    </script>
+</body>
+</html>

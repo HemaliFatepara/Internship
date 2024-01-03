@@ -1,0 +1,246 @@
+<html>
+    <head>
+        <tittle>
+
+        </tittle>
+     <script type="text/javascript">
+     	function changeText() {
+     		 document.getElementById("demo5").innerHTML = "Paragraph changed.";
+             
+     	}
+
+        function add(){
+            window.alert(5 + 6 ); /// alert(5+6)
+        }
+        
+        function multiple(){
+            let x, y;
+            x = 5 + 6;
+            y = x * 10;
+            document.getElementById("demo7").innerHTML = y;    
+        }
+
+        function car(){
+            let carName = "volvo"
+            document.getElementById("demo8").innerHTML = carName;    
+        }
+
+        function bike(){
+            const bike = ["ktm" , "BMW" , "xyz"]
+            bike[2] = "Honda";
+            bike.push("Hero")
+            document.getElementById("demo9").innerHTML = bike;
+        }
+
+        function additionn(){
+            let a = 5;
+            let b = 10;
+            let c = a + b;
+            document.getElementById("demo10").innerHTML = c;
+        }
+
+        function sub(){
+            let a = 5;
+            let b = 10;
+            let c = a - b;
+            document.getElementById("demo10").innerHTML = c;
+        }
+
+        function multi(){
+            let a = 5;
+            let b = 10;
+            let c = a * b;
+            document.getElementById("demo10").innerHTML = c;
+        }
+
+        function div(){
+            let a = 5;
+            let b = 10;
+            let c = a / b;
+            document.getElementById("demo10").innerHTML = c;
+        }
+
+        function modulo(){
+            let a = 5;
+            let b = 10;
+            let c = a % b;
+            document.getElementById("demo10").innerHTML = c;
+        }
+
+        function increment(){
+            let a = 5;
+            a++;
+            let c = a;
+            document.getElementById("demo10").innerHTML = c;
+        }
+
+        function decrement(){
+            let a = 5;
+            a--;
+            let c = a;
+            document.getElementById("demo10").innerHTML = c;
+        }
+
+        function exponentition(){
+            let a = 5;
+            let c = a ** 2;
+            document.getElementById("demo10").innerHTML = c;
+        }
+
+        function toCelsius(f) {
+            return (5/9) * (f-32);
+            let value = toCelsius(77);
+        }
+
+     </script>
+    </head>
+
+    <body>
+        <p id="demo">Chage text</p>
+        <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+
+        <p id="demo2">change font</p>
+        <button type="button" onclick='document.getElementById("demo2").style.fontSize="60px"''>Click Me!</button>
+
+        <p id="demo3">hide elements</p>
+        <button type="button" onclick='document.getElementById("demo3").style.display="none"''>Click Me!</button>
+
+        <p>Display Hidden Text</p>
+        <p id="demo4" style="display:none">Hello JavaScript!</p>
+		<button type="button" onclick="document.getElementById('demo4').style.display='block'">Click Me!</button>
+
+		<p>--------------------Using Script Tag-------------------------------------</p>
+
+		<p id="demo5">Chage text</p>
+		<button type="button" onclick="changeText()">Try it</button>
+
+        <p id="demo6">Addition 5 + 6 :</p>
+        <button type="button" onclick="add()">Try it</button>
+
+        <p id="demo7"> x = 5 + 6 & y = x * 10 :</p>
+        <button type="button" onclick="multiple()">Try it</button>
+
+        <p id="demo8"> Output using let</p>
+        <button type="button" onclick="car()">Get Your car name</button>
+
+        <p id="demo9"> Output using CONST</p>
+        <button type="button" onclick="bike()">Get bike list</button>
+
+        <p>-----------------------------Arithmetic Operations--------------------------------</p>
+        <p>val = 5 & val = 10 </p>
+        <p id="demo10"> Output </p>
+        <button type="button" onclick="additionn()">+</button>
+        <button type="button" onclick="sub()">-</button>
+        <button type="button" onclick="multi()">*</button>
+        <button type="button" onclick="div()">/</button>
+        <button type="button" onclick="modulo()">%</button>
+        <button type="button" onclick="increment()">++</button>
+        <button type="button" onclick="decrement()">--</button>
+        <button type="button" onclick="exponentition()">**</button>
+
+
+        <p>-----------------------------Events------------------------------------------</p>
+        <P>DATE & TIME</P>
+        <button type="button" onclick="this.innerHTML=Date()">Time Now</button>
+        
+    </body>
+</html>
+
+<!-- 
+function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+
+let value = toCelsius(77);
+console.log(value);
+
+///////////////////////////
+
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+console.log(person.firstName + " is " + person.age + " Yers old.")
+
+///////////////////////////////////
+
+console.log("The character \\ is called backslash.");
+console.log("The character \b is called Backspace");
+console.log("The character \f is called Form Feed.");
+console.log("The character \n is called New Line.");
+console.log("The character \r is called Carriage Return.");
+console.log("The character \t is called Horizontal Tabulator.");
+console.log("The character \v is called Vertical Tabulator.");
+
+////////////////////////////////////////////
+
+var text = "Vismay"
+
+
+console.log("ToUppercase: " + text.toUpperCase());
+console.log("ToLowercase: " + text.toLowerCase());
+console.log("charAt(0): " + text.charAt(0));
+console.log("Text.at(2): " + text.at(2));
+console.log("charAt(0): " + text.charAt(0));
+console.log("charCodeAt(0): " +text.charCodeAt(0));
+console.log("Slice by 3: "+text.slice(3));
+console.log("Concat two string: " + text.concat("" , "Patel"));
+console.log("padStart: " + text.padStart(15 , "0"));
+console.log("padEnd: " + text.padEnd(15 , "0"));
+console.log("Repeted Text: " + text.repeat(5));
+console.log("Replace with Patel: " + text.replace("Vismay" , "Patel"));
+
+///////////////////////////////////////////////////////////
+
+var text2 = "Please locate where 'locate' occurs!";
+console.log("indexOflocate:" + text2.indexOf("locate"));
+console.log("LastindexOflocate:" + text2.lastIndexOf("locate"));
+console.log("LastindexOfjohn:" + text2.lastIndexOf("John"));
+console.log("search=locate: " + text2.search("locate"));
+console.log("Match Text locate: " + text2.includes("locate"));
+console.log("Match Text world: " + text2.includes("world"));
+console.log("Start With Please: "+ text2.startsWith("Please"));
+console.log("Start With world: "+ text2.startsWith("world"));
+console.log("End with occurs!: " + text2.endsWith("occurs!"));
+
+///////////////////////////////////////////////////
+console.log(`welcome ${person.firstName} , ${person.lastName}!`);
+console.log(text / 100);
+
+//////////////////////////////////////////////////////////
+
+var myNumber = 32;
+console.log("Hexatrigesimal (base 36): " +myNumber.toString(36));
+console.log("Duotrigesimal (base 32): " + myNumber.toString(32));
+console.log("Hexadecimal (base 16): " +myNumber.toString(16));
+console.log("Duodecimal (base 12): " +myNumber.toString(12));
+console.log("Decimal (base 10): " + myNumber.toString(10));
+console.log("Octal (base 8): "+ myNumber.toString(8));
+console.log("Max Safe: "+Number.MAX_SAFE_INTEGER);
+console.log("Min Safe: "+Number.MIN_SAFE_INTEGER);
+console.log("Check integer 10 : " + Number.isInteger(10));
+console.log("Check integer 10.5 : " + Number.isInteger(10.5));
+console.log("32 into Exponential:" + myNumber.toExponential());
+console.log("EPSILON: " +Number.EPSILON);
+console.log("MAX_VALUE: "+Number.MAX_VALUE);
+console.log("MIN_VALUE: "+Number.MIN_VALUE);
+console.log("POSITIVE_INFINITY: "+Number.POSITIVE_INFINITY);
+console.log("NEGATIVE_INFINITY: "+Number.NEGATIVE_INFINITY);
+
+////////////////////////////////////////////////////////////
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fLen = fruits.length;
+
+let text3 = "<ul>";
+for (let i = 0; i < fLen; i++) {
+  text3 += "<li>" + fruits[i] + "</li>";
+}
+text3 += "</ul>";
+console.log(text3);
+console.log("lengthof arrays: " + fruits.length);
+console.log("Type of arrays: " + typeof fruits);
+console.log("isarrays: " + Array.isArray(fruits));
+console.log("At 3: " + fruits.at(3)); -->

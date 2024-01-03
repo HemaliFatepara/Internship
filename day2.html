@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2</title>
+</head>
+<body>
+<button onclick="myFunction1()">Sort Alphabetically</button>
+<button onclick="myFunction2()">Sort Numerically</button>
+<button onclick="myFunction3()">Sort Ascending</button>
+<button onclick="myFunction4()">Sort Descending</button>
+<button onclick="myFunction5()">Sort Random</button>
+<button onclick="myFunction6()">The Fisher Yates Method</button>
+<p id="demo"></p>
+<P>-------------------------------------------------</P>
+<p>The lowest number is <span id="demo2"></span>.</p>
+<p>The highest number is <span id="demo3"></span>.</p>
+
+<script>
+const points = [40, 100, 1, 5, 25, 10];
+document.getElementById("demo").innerHTML = points;
+
+function myFunction1() {
+  points.sort();
+  document.getElementById("demo").innerHTML = points;
+}
+
+function myFunction2() {
+  points.sort(function(a, b){return a - b});
+  document.getElementById("demo").innerHTML = points;
+}
+
+function myFunction3(){
+points.sort(function(a, b){return a - b});
+document.getElementById("demo").innerHTML = points;
+
+}
+
+function myFunction4() {
+points.sort(function(a, b){return b - a});
+document.getElementById("demo").innerHTML = points;
+}
+
+function myFunction5() {
+points.sort(function(){return 0.5 - Math.random()});
+document.getElementById("demo").innerHTML = points;
+}
+
+function myFunction6() {
+  for (let i = points.length -1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i+1));
+    let k = points[i];
+    points[i] = points[j];
+    points[j] = k;
+  }
+document.getElementById("demo").innerHTML = points;
+}
+
+document.getElementById("demo2").innerHTML = myFunction7(points);
+function myFunction7(arr) {
+  return Math.min.apply(null, arr);
+}  
+
+
+document.getElementById("demo3").innerHTML = myFunction8(points);
+function myFunction8(arr) {
+  return Math.max.apply(null, arr);
+} 
+  
+</script>
+</body>
+</html>
