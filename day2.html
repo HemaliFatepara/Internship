@@ -12,12 +12,129 @@
 <button onclick="myFunction4()">Sort Descending</button>
 <button onclick="myFunction5()">Sort Random</button>
 <button onclick="myFunction6()">The Fisher Yates Method</button>
+
 <p id="demo"></p>
-<P>-------------------------------------------------</P>
+<P>----------------------------------------------------------------------------------------------------------------------</P>
 <p>The lowest number is <span id="demo2"></span>.</p>
 <p>The highest number is <span id="demo3"></span>.</p>
 
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Sort car objects on age:</p>
+<p id="demo4"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Sort car objects on type using button</p>
+<button onclick="myFunction11()">Sort</button>
+<p id="demo5"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>const numbers = [45, 4, 9, 16, 25];</p>
+<p>Call a function once for each array element:</p>
+<p id="demo6"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+<p>const numbers = [45, 4, 9, 16, 25];</p>
+<p>Create a new array by performing a function on each array element:</p>
+<p id="demo7"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>const numbers = [45, 4, 9, 16, 25];</p>
+<p>filter over 18</p>
+<p id="demo8"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>const numbers = [45, 4, 9, 16, 25];</p>
+<p>Sum of array</p>
+<p id="demo9"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>const numbers = [45, 4, 9, 16, 25];</p>
+<p>Cheack all over 18</p>
+<p id="demo10"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>const numbers = [45, 4, 9, 16, 25];</p>
+<p>Some Cheack over 18</p>
+<p id="demo11"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Return an array object from any object with a length property or any iterable object.</p>
+<p id="demo12"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Original array: ["Januar", "Februar", "Mar", "April"];</p>
+<p id="demo13">Updated array:</p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Return combine array</p>
+<p id="demo14"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>DATE & TIME</p>
+<p id="demo15"></p>
+<p id="demo16"></p>
+<p id="demo17"></p>
+<p id="demo18"></p>
+<p id="demo19"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Genrate Random Number:</p>
+<button onclick="document.getElementById('demo20').innerHTML = getRndInteger(0,10)">Click Me</button>
+<P id="demo20"></P>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Input your age and click the button:</p>
+<input id="age" />
+<button onclick="myFunction18()">Try it</button>
+<p id="demo21"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p id="demo22"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Output using for loops</p>
+<p id="demo23"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Output using While loops</p>
+<p id="demo24"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Output using Do While loops</p>
+<p id="demo25"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<p>Cheack Type</p>
+Enter Input: <input id="demo26">
+<button type="button" onclick="myFunction19()">Cheack!</button>
+<p id="demo27"></p>
+
+<P>----------------------------------------------------------------------------------------------------------------------</P>
+
+<a href="javascript:void(document.body.style.backgroundColor='red');">
+  Click me to change the background color of body to red
+</a>
+
 <script>
+
 const points = [40, 100, 1, 5, 25, 10];
 document.getElementById("demo").innerHTML = points;
 
@@ -57,17 +174,455 @@ function myFunction6() {
 document.getElementById("demo").innerHTML = points;
 }
 
+///////////////////////////////////////////////////////////////////////
+
+
 document.getElementById("demo2").innerHTML = myFunction7(points);
 function myFunction7(arr) {
   return Math.min.apply(null, arr);
 }  
 
+///////////////////////////////////////////////////////////////////////
 
 document.getElementById("demo3").innerHTML = myFunction8(points);
 function myFunction8(arr) {
   return Math.max.apply(null, arr);
 } 
+
+/////////////////////////////////////////////////////////////////////////
+
+const cars = [
+  {type:"Volvo", year:2016},
+  {type:"Saab", year:2001},
+  {type:"BMW", year:2010}
+];
+
+cars.sort(function(a, b){return a.year - b.year});
+myFunction9();
+function myFunction9(){
+  document.getElementById("demo4").innerHTML =
+  cars[0].type + " " + cars[0].year + "<br>" +
+  cars[1].type + " " + cars[1].year + "<br>" +
+  cars[2].type + " " + cars[2].year;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+const cars2 = [
+  {type:"Volvo", year:2016},
+  {type:"Saab", year:2001},
+  {type:"BMW", year:2010}
+];
+myFunction10();
+
+function myFunction11() {
+  cars2.sort(function(a, b){
+    let x = a.type.toLowerCase();
+    let y = b.type.toLowerCase();
+    if (x < y) {return -1;}
+    if (x > y) {return 1;}
+    return 0;
+  });
+  myFunction10();
+}
+
+function myFunction10(){
+  document.getElementById("demo5").innerHTML =
+  cars2[0].type + " " + cars2[0].year + "<br>" +
+  cars2[1].type + " " + cars2[1].year + "<br>" +
+  cars2[2].type + " " + cars2[2].year;
+}
+
+/////////////////////////////////////////////
+
+const numbers = [45, 4, 9, 16, 25];
+let txt = "";
+numbers.forEach(myFunction12);
+document.getElementById("demo6").innerHTML = txt;
+
+function myFunction12(value) {
+  txt += value + "<br>"; 
+}
+
+const numbers2 = numbers.map(myFunction13); ///similar method flatmap()
+document.getElementById("demo7").innerHTML = numbers2;
+
+function myFunction13(value){
+  return value * 2;
+}
+
+const over18 = numbers.filter(myFunction14);
+document.getElementById("demo8").innerHTML = over18;
+function myFunction14(value) {
+  return value > 18 ;
+}
+
+const sum = numbers.reduce(myFunction15); ///similar method reduceRight()
+document.getElementById("demo9").innerHTML = sum;
+function myFunction15(total , value) {
+  return total + value;
+}
+
+const allover18 = numbers.every(myFunction16);
+document.getElementById("demo10").innerHTML = allover18;
+function myFunction16(value) {
+  return value > 18;
+}
+
+const someover18 = numbers.some(myFunction17);
+document.getElementById("demo11").innerHTML = someover18;
+function myFunction17(value) {
+  return value > 18;
+}
+
+const myArr = Array.from("ABCDEFG");
+document.getElementById("demo12").innerHTML = myArr;
+
+///////////////////////////////////////////////////////
+
+const months = ["Januar", "Februar", "Mar", "April"];
+const myMonths = months.with(2, "March");
+document.getElementById("demo13").innerHTML = myMonths;
+
+////////////////////////////////////////////////////////
+
+const q1 = ["Jan", "Feb", "Mar"];
+const q2 = ["Apr", "May", "Jun"];
+const q3 = ["Jul", "Aug", "Sep"];
+const q4 = ["Oct", "Nov", "May"];
+
+const year = [...q1, ...q2, ...q3, ...q4];
+document.getElementById("demo14").innerHTML = year; 
+
+/////////////////////////////////////////////////////////
+
+const date = new Date();
+document.getElementById("demo15").innerHTML = "Current Date & Time: " + date;
+document.getElementById("demo16").innerHTML = "Convert into toString: " + date.toString();
+document.getElementById("demo17").innerHTML = "Convert into toDateString: " + date.toDateString();
+document.getElementById("demo18").innerHTML = "UTC standard: " + date.toUTCString();
+document.getElementById("demo19").innerHTML = "ISO standard: " + date.toISOString();
+
+/////////////////////////////////////////////////////////////////////
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+/////////////////////////////////////////////
+
+function myFunction18() {
+  let voteable;
+  let age = Number(document.getElementById("age").value);
+  if (isNaN(age)) {
+    voteable = "Input is not a number";
+  } else {
+    voteable = (age < 18) ? "Too young" : "Old enough";
+  }
+  document.getElementById("demo21").innerHTML = voteable + " to vote";
+}
+////////////////////////////////////////////////////
+let day;
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+
+  case 1:
+    day = "Monday";
+    break;
+
+  case 2:
+    day = "Tuesday";
+    break;
+
+  case 3:
+    day = "Wednesday";
+    break;
+
+  case 4:
+    day = "Thursday";
+    break;
   
+  case 5:
+    day = "Friday";
+    break;
+
+  case 6:
+    day = "Saturday";
+}
+document.getElementById("demo22").innerHTML = "Today is " + day;
+
+////////////////////////////////////////////////////////
+
+let text5 = ""
+for (let i=0; i<5 ; i++){
+  text5 +="The number is " + i + "<br>";
+}
+document.getElementById("demo23").innerHTML = text5;
+
+////////////////////////////////////////////////////////
+
+let text6 =""
+i = 0;
+while (i < 4 ){
+  text6 += "<br>This number is: " + i ;
+  i++;
+} 
+document.getElementById("demo24").innerHTML = text6;
+
+/////////////////////////////////////////////////////////
+let text7=""
+i = 0;
+do {
+  text7 += "<br>The number is " + i;
+  i++;
+}
+while (i < 4);
+document.getElementById("demo25").innerHTML = text7;
+
+///////////////////////////////////////////
+
+// function myFunction19(){
+//   var input = document.getElementById("demo26").value;
+//   var output = typeof input;
+//   document.getElementById("demo27").innerText = "Type is:" + output;
+// }
+
+// function myFunction19() {
+//   const input = document.getElementById("demo26").value;
+
+//   // Comprehensive type checking:
+//   if (typeof input === "number") {
+//     document.getElementById("demo27").innerText = "The input is a number.";
+//   } else if (typeof input === "string") {
+//     document.getElementById("demo27").innerText = "The input is a string.";
+//   } else if (typeof input === "boolean") {
+//     document.getElementById("demo27").innerText = "The input is a boolean.";
+//   } else if (input === null || input === undefined) {
+//     document.getElementById("demo27").innerText = "The input is null or undefined."
+//   } else if (typeof input === "object") {
+//     document.getElementById("demo27").innerText = "The input is an object (consider specific object types if needed).";
+//   } else {
+//     document.getElementById("demo27").innerText = "The input is of an unknown type."
+//   }
+// }
+
+function myFunction19() {
+  const input = document.getElementById("demo26");
+  const output= input.value;
+
+  // Comprehensive type checking:
+  if (typeof output === "number") {
+    alert("The input is a number.");
+  } else if (typeof output === "string") {
+    alert("The input is a string.");
+  } else if (typeof output === "boolean") {
+    alert("The input is a boolean.");
+  } else if (output === null || output === undefined) {
+    alert("The input is null or undefined.");
+  } else if (typeof output === "object") {
+    alert("The input is an object (consider specific object types if needed).");
+  } else {
+    alert("The input is of an unknown type.");
+  }
+}
+
 </script>
 </body>
 </html>
+
+<!-- const fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruits.length);
+console.log(fruits.toString());
+console.log(fruits.at(1));
+console.log(fruits[1]);
+console.log(fruits.join("*"));
+console.log(fruits.pop());
+console.log(fruits);
+console.log(fruits.push("Mango"));
+console.log(fruits);
+console.log(fruits.shift()); //remove
+console.log(fruits);
+console.log(fruits.unshift("kiwi")); //add
+console.log(fruits);
+
+const vegitables = ["potato", "tomato" , "onnion"];
+console.log(fruits.concat(vegitables));
+console.log(vegitables.copyWithin(2 , 0)); 
+
+const myArr = [[1,2],[3,4],[5,6]];
+console.log(myArr.flat());
+fruits.splice(2 , 0 , "Orange" , "Banana"); //add
+console.log(fruits);
+fruits.splice(0 , 2); 
+console.log(fruits);
+
+var fruits2 = fruits.toSpliced(0, 2);
+console.log(fruits2);
+
+var fruits3 = fruits.slice(0 , 2);
+console.log(fruits3);
+
+const fruits4 = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruits4.indexOf("Apple"));
+console.log(fruits4.includes("Apple"));
+
+const numbers = [1,2,25,65,45,49,55,75,56];
+console.log(numbers.find(myfunction));
+console.log(numbers.findIndex(myfunction));
+console.log(numbers.findLast(myfunction));
+console.log(numbers.findLastIndex(myfunction));
+function myfunction(value, index, array){
+  return value > 20;
+}
+
+
+const fruits5 = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruits5.sort());
+console.log(fruits5.reverse());
+
+fruits5.sort();
+fruits5.reverse();
+console.log(fruits5); //desending
+
+const stored = fruits5.toSorted();
+// console.log(stored)
+
+const stored2 = fruits5.toReversed();
+// console.log(stored2);
+
+const numbers6 = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers6.forEach(myFunction);
+console.log(txt);
+
+function myFunction(value) {
+  txt += value + "<br>"; 
+}
+
+const d = new Date();
+d.getFullYear();
+d.getMonth();
+d.getDate() + 1;
+d.getDay();
+d.getHours();
+d.getMinutes();
+d.getSeconds();
+d.getMilliseconds();
+d.getTimezoneOffset();
+d.setFullYear(2020);
+d.setMonth(11);
+d.setDate(15);
+d.setDate(d.getDate() + 50);
+d.setHours(22);
+d.setMinutes(30);
+d.setSeconds(30);
+
+
+// Math.E;        // returns Euler's number
+// Math.PI;       // returns PI
+// Math.SQRT2;    // returns the square root of 2
+// Math.SQRT1_2;  // returns the square root of 1/2
+// Math.LN2;      // returns the natural logarithm of 2
+// Math.LN10;     // returns the natural logarithm of 10
+// Math.LOG2E;    // returns base 2 logarithm of E
+// Math.LOG10E;   // returns base 10 logarithm of E
+// Math.round(4.6);
+// Math.ceil(4.9);  //rounded up to its nearest integer:
+// Math.floor(4.9); //rounded down to its nearest integer:
+// Math.trunc(4.9); // integer part of x:
+// Math.pow(8, 2);
+// Math.sqrt(64);
+// Math.abs(-4.7); //absolute (positive) value of x:
+// Math.sin(90 * Math.PI / 180);
+// Math.cos(0 * Math.PI / 180);  
+// Math.min(0, 150, 30, 20, -8, -200);
+// Math.max(0, 150, 30, 20, -8, -200);
+// Math.random();
+// Math.log(1);
+// Math.log2(8);
+// Math.log10(1000);
+// Math.floor(Math.random() * 10);
+
+// Boolean(10 > 9)
+
+
+const x = 5;
+console.log(x == 8);
+console.log(x == 5);
+console.log(x == 5);
+console.log(x == "5");
+console.log(x === 5);
+console.log(x === "5");
+console.log(x != 8);
+console.log(x !== 5); ///not equal value or not equal type
+console.log(x !== "5");
+console.log(x !== 8);
+
+console.log(x > 8);
+console.log(x < 8);
+console.log(x >= 8);
+console.log(x <= 8);
+
+
+const y = 3;
+console.log((x < 10 && y > 1));
+console.log((x < 10 && y < 1));
+console.log((x == 6 || y == 5));
+console.log((x == 0 || y == 3));
+console.log(!(x === y));
+console.log(!(x > y));
+
+
+
+const letter = new Set();
+letter.add(0);
+letter.add(1);
+letter.add(2);
+console.log(letter);
+letter.delete(2);
+console.log(letter);
+letter.has(0);
+letter.values();
+
+
+const fruits7 = new Map();
+fruits7.set("apples", 500);
+fruits7.set("bananas", 300);
+fruits7.set("oranges", 200);
+console.log(fruits7);
+fruits7.get("apples");
+fruits7.size;
+fruits7.delete("apples");
+console.log(fruits7);
+fruits7.has("apples");
+fruits7.has("bananas");
+
+typeof "John"                 // Returns "string"
+typeof 3.14                   // Returns "number"
+typeof NaN                    // Returns "number"
+typeof false                  // Returns "boolean"
+typeof [1,2,3,4]              // Returns "object"
+typeof {name:'John', age:34}  // Returns "object"
+typeof new Date()             // Returns "object"
+typeof function () {}         // Returns "function"
+typeof myCar                  // Returns "undefined" *
+typeof null                   // Returns "object"
+typeof "John"              // Returns "string"
+typeof 3.14                // Returns "number"
+typeof true                // Returns "boolean"
+typeof false               // Returns "boolean"
+typeof x                   // Returns "undefined" (if x has no value)
+
+let text34 = "Visit W3Schools!";
+let n = text34.search("W3Schools");
+console.log(n);
+
+let text = "Visit W3Schools";
+let n = text.search(/w3schools/i);
+console.log(n);
+
+let text = "Visit Microsoft!";
+let result = text.replace("Microsoft", "W3Schools");
+console.log(result); -->
