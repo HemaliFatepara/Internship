@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day-3</title>
 </head>
-<body>
+<body onload="checkCookies()">
     <p id="demo1">
     <p id="demo2">
     <p id="demo3">
@@ -22,7 +22,83 @@
     <p id="demo14">
     <p id="demo15">
     <p id="demo16">
-        
+
+<form name="myForm" onsubmit="return validateForm()" oninput="upperCase()" method="post" >
+Name: <input type="text" name="fname" id="fname">
+<input type="submit" value="Submit">
+</form>
+
+<br>
+<br>
+
+<form  method="post">
+    <input type="text" name="fname" required>
+    <input type="submit" value="Submit">
+  </form>
+<br>
+
+
+<button type="button"
+onclick="document.getElementById('demo12').style.color = 'red'">
+Click Me!</button>
+<br>
+
+
+
+<div id="animation">My animation will go here</div>
+
+<style>
+    #container {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      background: black;
+    }
+    #animate {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      background: red;
+    }
+</style>
+
+<p><button onclick="myMove()">Click Me</button></p> 
+
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+
+<script>
+function myMove() {
+  let id = null;
+  const elem = document.getElementById("animate");   
+  let pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+    }
+  }
+}
+</script>
+
+
+
+<h1 onclick="this.innerHTML = 'Ooops!'">Click on this text!</h1>
+
+
+
+<br>
+
+<button onclick="displayDate()">Try it</button>
+
+<br>
+
 <script>
         let num = 1;
         try {
@@ -103,12 +179,99 @@ const obj = JSON.parse(text);
 document.getElementById("demo10").innerHTML =
 obj.employees[1].firstName + " " + obj.employees[1].lastName;
 
+/////////////////////////////////////////////////////////////////////////////////
 
+const myPromise = new Promise(function(myResolve, myReject) {
+  setTimeout(function(){ myResolve("I love Coding !!"); }, 3000);
+});
+
+myPromise.then(function(value) {
+  document.getElementById("demo11").innerHTML = value;
+});
+
+////////////////////////////////////////////////////////////////////////
+
+
+setInterval(myFunction, 1000);
+
+function myFunction() {
+  let d = new Date();
+  document.getElementById("demo12").innerHTML=
+  d.getHours() + ":" +
+  d.getMinutes() + ":" +
+  d.getSeconds();
+}
+
+
+document.getElementById("demo11").style.color = "red";
+document.getElementById("demo12").style.fontSize= "50px";
+
+////////////////////////////////////////////////////////////////////
+
+function displayDate(){
+document.getElementById("demo13").innerHTML = "Date : " + Date(); 
+}
+
+/////////////////////////////////////////////////////////
+
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+
+</script> 
+
+<script>
+    function checkCookies() {
+      let text = "";
+      if (navigator.cookieEnabled == true) {
+        text = "Cookies are enabled.";
+      } else {
+        text = "Cookies are not enabled.";
+      }
+      document.getElementById("demo15").innerHTML = text;
+    }
+
+/////////////////////////////////////////////////////////////
+
+function upperCase() {
+  const x = document.getElementById("fname");
+  x.value = x.value.toUpperCase();
+}
 </script>
+
+
 
 <script src="day3.js">
     // import day3 from "./day3.js";
     // document.getElementById("demo10").innerHTML = day3();
+</script> 
+
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" 
+style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+Mouse Over Me</div>
+<br>
+<script>
+function mOver(obj) {
+  obj.innerHTML = "Thank You"
+}
+
+function mOut(obj) {
+  obj.innerHTML = "Mouse Over Me"
+}
 </script>
+<br>
+<button id="myBtn">Try it</button>
+
+<script>
+document.getElementById("myBtn").addEventListener("click", function() {
+  alert("Hello World!");
+});
+</script>
+
+
 </body>
 </html>
