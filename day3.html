@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-3</title>
+</head>
+<body>
+    <p id="demo1">
+    <p id="demo2">
+    <p id="demo3">
+    <p id="demo4">
+    <p id="demo5">
+    <p id="demo6">
+    <p id="demo7">
+    <p id="demo8">
+    <p id="demo9">
+    <p id="demo10">
+    <p id="demo11">
+    <p id="demo12">
+    <p id="demo13">
+    <p id="demo14">
+    <p id="demo15">
+    <p id="demo16">
+        
+<script>
+        let num = 1;
+        try {
+          num.toPrecision(500);   // range error
+        }
+        catch(err) {
+          document.getElementById("demo1").innerHTML = err.name;
+        }
+/////////////////////////////////////////////////////////////////////////
+
+        let x = 5;
+        try {
+            x = y + 1
+        } catch (error) {
+            document.getElementById("demo2").innerHTML=error.name;
+        }
+        
+/////////////////////////////////////////////////////////////////////////
+
+        try {
+            eval("alert('hello)");
+        } catch (error) {
+            document.getElementById("demo3").innerHTML=error.name;
+        }
+
+/////////////////////////////////////////////////////////////////////////
+
+        let n = 1;
+        try {
+            n.toUppercase();
+        } catch (error) {
+            document.getElementById("demo4").innerHTML=error.name;
+        }
+
+/////////////////////////////////////////////////////////////////////////
+
+        try {
+            decodeURI("%%%");
+        } catch (error) {
+            document.getElementById("demo5").innerHTML=error.name;
+        }
+
+/////////////////////////////////////////////////////////////////////////
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+const member = {
+  firstName:"Hege",
+  lastName: "Nilsen",
+}
+
+let fullName = person.fullName.bind(member);
+document.getElementById("demo6").innerHTML= person.fullName();
+document.getElementById("demo7").innerHTML= fullName();
+
+////////////////////////////////////////////////////////////////////////////////////
+
+let myfunction = (a, b ) => a*b;
+document.getElementById("demo8").innerHTML = myfunction(5 , 5);
+
+hello = () => "hello world";
+document.getElementById("demo9").innerHTML = hello();
+
+///////////////////////////////////////////////////////////////////////////
+
+let text = '{"employees":[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}';
+
+const obj = JSON.parse(text);
+document.getElementById("demo10").innerHTML =
+obj.employees[1].firstName + " " + obj.employees[1].lastName;
+
+
+</script>
+
+<script src="day3.js">
+    // import day3 from "./day3.js";
+    // document.getElementById("demo10").innerHTML = day3();
+</script>
+</body>
+</html>
