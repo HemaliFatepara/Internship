@@ -139,7 +139,6 @@ c.addEventListener("click" , myfunction2 => alert("hello again"));
 
 </script>
 
-
 <script>
 function remove(){
     document.getElementById("demo2").remove();
@@ -210,7 +209,7 @@ function myFunction2() {
 <script>
     function myFunction() {
       let text;
-      let person = prompt("Please enter your name:", "Please write here..");
+      let person = prompt("Please enter your name:");
       if (person == null || person == "") {
         text = "User cancelled the prompt.";
       } else {
@@ -238,7 +237,8 @@ function myFunction2() {
 </script>
 
 <script>
-    function setCookie(cname, cvalue, exdays) {
+
+function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   let expires = "expires="+d.toUTCString();
@@ -388,8 +388,7 @@ function loadDoc() {
   chart.draw(data, options);
   
   }
-  </script>
-
+</script>
 </body>
 </html>
 
