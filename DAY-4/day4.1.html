@@ -79,6 +79,43 @@
 <p id="demo27"></p>
 <button onclick="startClock()">Start time</button>
 <button onclick="stopClock()">Stop time</button>
+
+<br><br>
+
+<p>Click the button to get your coordinates.</p>
+<button onclick="getLocation()">Try It</button>
+<p id="demo28"></p>
+
+<br><br>
+
+<div id="demo29">
+  <h2>Let AJAX change this text</h2>
+  <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<br><br>
+
+<p>Last modified: <span id="demo30"></span></p>
+
+<br><br>
+
+<p>Plotly.js</p>
+<div id="myPlot" style="width:100%;max-width:700px"></div>
+
+<br><br>
+
+<div id="myPlot2" style="width:100%;max-width:700px"></div>
+
+<br><br>
+
+<p>Chart.js</p>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<br><br>
+
+<p>Google Chart</p>
+<div id="myChart2" style="width:100%; max-width:600px; height:500px;"></div>
+
 <!--------------------------------------------------------------------------------->
 
 <script>
@@ -236,5 +273,123 @@ function checkCookie() {
 }
 </script>
 
+<script>
+  const x = document.getElementById("demo28");
+  
+  function getLocation() {
+    try {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } catch {
+      x.innerHTML = err;
+    }
+  }
+  
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+  }
+</script>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo29").innerHTML = this.responseText;
+    }
+  xhttp.open("GET", "sample.txt", true);
+  xhttp.send();
+}
+</script>
+
+<script>
+  const xhttp=new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo30").innerHTML =
+    this.getResponseHeader("Last-Modified");
+  }
+  xhttp.open("GET", "day4.1.html");
+  xhttp.send();
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ 
+<script> $("#demo27").css("font-size","35px");</script>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+  const xArray = ["Italy", "France", "Spain", "USA", "Argentina"];
+  const yArray = [55, 49, 44, 24, 15];
+  
+  const layout = {title:"World Wide Wine Production"};
+
+  const data = [{labels:xArray, values:yArray, type:"pie"}];
+  Plotly.newPlot("myPlot", data, layout);
+
+  const data2 = [{labels:xArray, values:yArray, hole:.4, type:"pie"}];
+  Plotly.newPlot("myPlot2", data2, layout);
+
+</script>
+
+<script>
+  const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+  const yValues = [55, 49, 44, 24, 15];
+  const barColors = ["red", "green","blue","orange","brown"];
+  
+  new Chart("myChart", {
+    type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      title: {
+        display: true,
+        text: "World Wine Production 2018"
+      }
+    }
+  });
+</script>
+
+<script>
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  
+  function drawChart() {
+  
+  // Set Data
+  const data = google.visualization.arrayToDataTable([
+    ['Contry', 'Mhl'],
+    ['Italy',54.8],
+    ['France',48.6],
+    ['Spain',44.4],
+    ['USA',23.9],
+    ['Argentina',14.5]
+  ]);
+  
+  // Set Options
+  const options = {
+    title:'World Wide Wine Production',
+    is3D:true
+  };
+  
+  // Draw
+  const chart = new google.visualization.PieChart(document.getElementById('myChart2'));
+  chart.draw(data, options);
+  
+  }
+  </script>
+
 </body>
 </html>
+
