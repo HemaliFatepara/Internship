@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Back" onclick="goBack()"><br><br>
+    <style>
+        #myDIV {
+          background-color: coral;
+          border: 1px solid;
+          padding: 50px;
+          color: white;
+          font-size: 20px;
+        }
+    </style>
+    
+    <div id="myDIV">
+        <p>Click button to remove event listener</p>
+        <button id="myBtn2" onclick="removeHandler()" >Remove</button>
+        </div>
+    <p id="demo"></p>
+
+    <script>
+        document.getElementById("myDIV").addEventListener("mousemove", myFunction);
+        
+        function myFunction() {
+          document.getElementById("demo").innerHTML = Math.random();
+        }
+        
+        function removeHandler() {
+          document.getElementById("myDIV").removeEventListener("mousemove", myFunction);
+        }
+
+        function goBack() {
+          window.history.back()
+        }
+    </script>
+        
+       
+</body>
+</html>

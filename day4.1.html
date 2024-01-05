@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="checkCookie()">
+
+<form id="myForm">
+        <input type="text" id="myTextBox">
+        <button type="submit">Submit</button>
+        <span id="errorMsg" style="display: none;">This field is required.</span>      
+    </form>
+
+<br><br>
+
+<button type="button" id="mybtn">Try it</button>
+
+<br><br>
+
+<p id="demo2">This is element</p>
+<button onclick="remove()">Remove Element</button>
+
+<br><br>
+
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+
+<br>
+
+<p id="demo9"></p>
+<p id="demo10"></p>
+<p id="demo11"></p>
+<p id="demo12"></p>
+<p id="demo13"></p>
+<p id="demo14"></p>
+
+<br>
+
+<input type="button" value="Load new document" onclick="newDoc()">
+
+<br><br>
+
+<input type="button" value="Forward" onclick="goForward()"><br><br>
+<!-- <input type="button" value="Back" onclick="goBack()"> -->
+
+<br><br>
+
+<p id="demo15"></p>
+<p id="demo16"></p>
+<p id="demo17"></p>
+<p id="demo18"></p>
+<p id="demo19"></p>
+<p id="demo20"></p>
+<p id="demo21"></p>
+<p id="demo22"></p>
+<p id="demo23"></p>
+<p id="demo24"></p>
+
+<br><br>
+
+<button onclick="myFunction2()">Try it</button>
+<p id="demo25"></p>
+
+<br><br>
+
+<button onclick="myFunction()">Try it</button>
+<p id="demo26"></p>
+
+<br><br>
+
+<p>A script on this page starts this clock:</p>
+<p id="demo27"></p>
+<button onclick="startClock()">Start time</button>
+<button onclick="stopClock()">Stop time</button>
+<!--------------------------------------------------------------------------------->
+
+<script>
+  document.getElementById("errorMsg").style.color="red";
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+  const myTextBox = document.getElementById("myTextBox");
+  const errorMsg = document.getElementById("errorMsg");
+
+  if (myTextBox.value === "") {
+    errorMsg.style.display = "block";
+    event.preventDefault(); // Prevent form submission
+  }
+});
+</script>
+
+<script>
+
+var c = document.getElementById("mybtn");
+c.addEventListener("click" , myfunction1 => alert("hello world"));
+c.addEventListener("click" , myfunction2 => alert("hello again"));
+
+</script>
+
+
+<script>
+function remove(){
+    document.getElementById("demo2").remove();
+}
+</script>
+
+<script>
+
+document.getElementById("demo3").innerHTML ="Screen Width: " + screen.width;
+document.getElementById("demo4").innerHTML ="Screen Height: " + screen.height;
+document.getElementById("demo5").innerHTML ="Available Screen Width: " + screen.availWidth;
+document.getElementById("demo6").innerHTML ="Available Screen Height: " + screen.availHeight;
+document.getElementById("demo7").innerHTML ="Screen Color Depth: " + screen.colorDepth;
+document.getElementById("demo8").innerHTML ="Screen Pixel Depth: " + screen.pixelDepth;
+
+</script>
+
+<script>
+    document.getElementById("demo9").innerHTML = "The full URL of this page is: " + window.location.href;
+    document.getElementById("demo10").innerHTML ="Page hostname is: " + window.location.hostname;
+    document.getElementById("demo11").innerHTML ="Page path is: " + window.location.pathname;
+    document.getElementById("demo12").innerHTML ="Page protocol is: " + window.location.protocol;
+    document.getElementById("demo13").innerHTML ="Port number is: " + window.location.port;
+</script>
+
+<script>
+    function newDoc() {
+      window.location.assign("day4.2.html")
+    }
+</script>
+
+<script>
+//     function goBack() {
+//       window.history.back()
+// }
+    function goForward() {
+      window.history.forward()
+}
+</script>
+
+<script>
+
+document.getElementById("demo15").innerHTML ="CookiesEnabled is: " + navigator.cookieEnabled;
+document.getElementById("demo16").innerHTML ="Navigator.appName is: " + navigator.appName;
+document.getElementById("demo17").innerHTML ="Navigator.appCodeName is: " + navigator.appCodeName;
+document.getElementById("demo18").innerHTML ="Navigator.product is: " + navigator.product;
+document.getElementById("demo19").innerHTML ="Version: " + navigator.appVersion;
+document.getElementById("demo20").innerHTML ="User Agent: " + navigator.userAgent;
+document.getElementById("demo21").innerHTML = "Platform: "+ navigator.platform;
+document.getElementById("demo22").innerHTML = "Language: "+ navigator.language;
+document.getElementById("demo23").innerHTML = "Is The Browser Online?: " + navigator.onLine;
+document.getElementById("demo24").innerHTML = "Is Java Enabled?: " + navigator.javaEnabled();
+
+</script>
+
+<script>
+function myFunction2() {
+  var txt;
+  if (confirm("Press a button!")) {
+    txt = "You pressed OK!";
+  } else {
+    txt = "You pressed Cancel!";
+  }
+  document.getElementById("demo25").innerHTML = txt;
+}
+</script>
+
+<script>
+    function myFunction() {
+      let text;
+      let person = prompt("Please enter your name:", "Please write here..");
+      if (person == null || person == "") {
+        text = "User cancelled the prompt.";
+      } else {
+        text = "Hello " + person + "! How are you today?";
+      }
+      document.getElementById("demo26").innerHTML = text;
+    }
+</script>
+
+<script>
+    let myInterval; // Declare the interval variable globally
+  
+    function startClock() {
+      myInterval = setInterval(updateClock, 1000); // Start the interval
+    }
+  
+    function stopClock() {
+      clearInterval(myInterval); // Clear the interval to stop the clock
+    }
+  
+    function updateClock() {
+      const d = new Date();
+      document.getElementById("demo27").innerHTML = d.toLocaleTimeString();
+    }
+</script>
+
+<script>
+    function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+    user = prompt("Please enter your name:", "");
+    if (user != "" && user != null) {
+      setCookie("username", user, 365);
+    }
+  }
+}
+</script>
+
+</body>
+</html>
