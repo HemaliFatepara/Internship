@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style> 
+        #panel, #flip1 , #flip2 , #flip3 , #flip4 {
+          padding: 5px;
+          text-align: center;
+          background-color: #e5eecc;
+          border: solid 1px #c3c3c3;
+        }
+        
+        #panel {
+          padding: 50px;
+          display: none;
+        }
+        .blue {
+            color: blue;
+        }
+        #div5 {
+            height: 150px;
+            width: 400px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+          $("#btn1").click(function(){
+            $("#p1").hide();
+          });
+        });
+    </script>  
+    <script>
+        $(document).ready(function(){
+          $("#btn2").click(function(){
+            $("p.test").hide();
+          });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn3").dblclick(function(){
+                $(".test").hide();
+            });
+        });
+    </script>
+    <!-- <script>
+        $(document).ready(function(){
+            $("#p1").mouseenter(function(){
+                alert("You entered p1!");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#p2").mouseleave(function(){
+                alert("Bye! You now leave p2!");
+            });
+        });
+    </script> -->
+    <!-- <script>
+        $(document).ready(function(){
+            $("#p3").hover(function(){
+                alert("You entered p3!");
+            },
+            function(){
+                alert("Bye! You now leave p3!");
+            });
+        });
+    </script> -->
+    <script>
+        $(document).ready(function(){
+            $("input").focus(function(){
+                $(this).css("background-color" , "yellow");
+            }),
+            $("input").blur(function(){
+                $(this).css("background-color" , "green");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#p5").on({
+                mouseenter: function(){
+                    $(this).css("background-color" , "lightgray");
+                },
+                mouseleave: function(){
+                    $(this).css("background-color" , "lightblue");
+                },
+                click: function(){
+                    $(this).css("background-color", "yellow");
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#hide_btn").click(function(){
+                $(".hide_p").hide(1000);
+            });
+            $("#show_btn").click(function(){
+                $(".hide_p").show(1000);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#hide_t").click(function(){
+                $("p.hide_t").toggle();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn4").click(function(){
+                $("#div1").fadeIn();
+                $("#div2").fadeIn("slow");
+                $("#div3").fadeIn(3000);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn5").click(function(){
+                $("#div1").fadeOut(100);
+                $("#div2").fadeOut(200);
+                $("#div3").fadeOut(300);
+             });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn6").click(function(){
+                $("#div1").fadeToggle();
+                $("#div2").fadeToggle("slow");
+                $("#div3").fadeToggle(3000);
+             });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+          $("#btn7").click(function(){
+            $("#div1").fadeTo("slow", 0.15);
+            $("#div2").fadeTo("slow", 0.4);
+            $("#div3").fadeTo("slow", 0.7);
+          });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#flip1").click(function(){
+                $("#panel").slideDown("slow");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#flip2").click(function(){
+                $("#panel").slideUp("slow");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#flip3").click(function(){
+                $("#panel").slideToggle("slow");
+            });
+        });
+    </script> 
+    <script>
+        $(document).ready(function(){
+            $("#flip4").click(function(){
+                $("#panel").stop();
+            });
+        });
+    </script> 
+    <script>
+        $(document).ready(function(){
+            $("#btn8").click(function(){
+                $("#div_1").animate({left: '1400px'})
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn9").click(function(){
+                $("#div_1").animate({
+                    height: 'toggle'
+                });
+            });
+        });
+    </script>
+    <script> 
+        $(document).ready(function(){
+          $("#btn10").click(function(){
+            var div = $("#div_1");
+            div.animate({height: '300px', opacity: '0.4'}, "slow");
+            div.animate({width: '300px', opacity: '0.8'}, "slow");
+            div.animate({height: '100px', opacity: '0.4'}, "slow");
+            div.animate({width: '100px', opacity: '0.8'}, "slow");
+          });
+        });
+    </script> 
+    <script>
+        $(document).ready(function(){
+            $("#btn11").click(function(){
+                $("#p6").hide("slow" , function(){
+                    alert("The paragraph is hidden");
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn12").click(function(){
+                $("#p7").css("color" , "red").slideUp(2000).slideDown(2000);
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn13").click(function(){
+                alert("Text: " + $("#p8").text());
+            }),
+            $("#btn14").click(function(){
+                alert("html: " + $("#p8").html());
+            }),
+            $("#btn15").click(function(){
+                alert("Value: " + $("#p9").val()) ;
+            }),
+            $("#btn16").click(function(){
+                alert("URL: " + $("#w3s").attr("href"));
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn17").click(function(){
+                $("#p10").text("Hello world!!");
+            }),
+            $("#btn18").click(function(){
+                $("#p11").html("<b>Hello world!!</b>");
+            }),
+            $("#btn19").click(function(){
+                $("#p12").val("Doremon");
+            }),
+            $("#btn20").click(function(){
+                $("#w3s2").attr("href","https://www.w3schools.com/jquery/jquery_dom_set.asp");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn21").click(function(){
+                $("h1 , h2 , #p13 , #p14").addClass("blue");
+            });
+            $("#btn22").click(function(){
+                $("h1 , h2 , #p13 , #p14").removeClass("blue");
+            }); 
+            $("#btn23").click(function(){
+                $("h1 , h2 ,#p13 , #p14").toggleClass("blue");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn24").click(function(){
+                alert("Background color = " + $("#p15 , #p16").css("background-color"));
+            });
+            $("#btn25").click(function(){
+                $("#p15 , #p16").css("background-color", "yellow");
+            });
+            $("#btn26").click(function(){
+              $("#p15 , #p16").css({"background-color": "yellow", "font-size": "200%"});
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+          $("#btn27").click(function(){
+            var txt = "";
+            txt += "Width of div: " + $("#div5").width() + "</br>";
+            txt += "Height of div: " + $("#div5").height() + "</br>";
+            txt += "InnerWidth of div: " + $("#div5").innerWidth() + "</br>";
+            txt += "InnerHeight of div: " + $("#div5").innerHeight() + "</br>";
+            txt += "Outer width of div: " + $("#div5").outerWidth() + "</br>";
+            txt += "Outer height of div: " + $("#div5").outerHeight() + "</br>";
+            txt += "Outer width (+margin): " + $("#div5").outerWidth(true) + "</br>";
+            txt += "Outer height (+margin): " + $("#div5").outerHeight(true);
+            $("#div5").html(txt);
+          });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn28").click(function(){
+                $("#p17").load("../DAY-4/sample.txt")
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function(){
+          $(".test1").click(function(){
+            $.get("demo_test.asp", function(data, status){
+              alert("Data: " + data + "\nStatus: " + status);
+            });
+          });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+          $(".test2").click(function(){
+            $.post("demo_test_post.asp",
+            {
+              name: "Donald Duck",
+              city: "Duckburg"
+            },
+            function(data,status){
+              alert("Data: " + data + "\nStatus: " + status);
+            });
+          });
+        });
+    </script>
+</head>
+<body>
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2"  class="test">This is another paragraph.</p>
+    <button id="btn1">Click me to hide paragraphs</button>
+    <button id="btn2">Click me</button>
+    <button id="btn3">Click me</button>
+    <br> 
+    <p id="p2">Enter this paragraph.</p>
+    <p id="p3">Enter this paragraph.</p>
+    <br>
+    <p id="p4">Enter this paragraph.</p>
+    <br>
+    Name: <input type="text">
+    Email: <input type="text">
+    <br>
+    <p id="p5">Click or move the mouse pointer over this paragraph.</p>
+    <br>
+    <p class="hide_p">Show and hide</p>
+    <button id="hide_btn">Hide</button>
+    <button id="show_btn">Show</button>
+    <br><br>
+    <p class="hide_t">Show and hide</p>
+    <button id="hide_t">Hide & Show</button>
+    <br><br>
+    <button id="btn4">click to display box</button>
+    <button id="btn5">click to hide box</button>
+    <button id="btn6">click to fadein/out box</button>
+    <button id="btn7">Click to fade boxes</button><br>
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+    <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+    <br><br>
+    <button id="flip1">Click to slide down panel</button>
+    <button id="flip2">Click to slide up panel</button>
+    <button id="flip3">Click to slide up/down panel</button>
+    <button id="flip4">Click to stop slide</button>
+    <div id="panel">Hello world!</div>
+    <br><br>
+    <button id="btn8">Start Animation</button>
+    <button id="btn9">Start Animation</button>
+    <button id="btn10">Start Animation</button><br><br>
+    <div id="div_1" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+    <br><br><br><br><br><br><br><br>
+    <button id="btn11">Hide and callback msg</button>
+    <p id="p6">This is the paragraph!!!!!!!11</p>
+    <br><br>
+    <p id="p7">jquery is fun!!</p>
+    <button id="btn12">Click me</button>
+    <br><br>
+    Name <input type="text" value="Mickey Mouse" id="p9"><br>
+    <p id="p8">This is some <b>bold</b> text in paragraph.</p>
+    <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+    <button id="btn13">Show Text</button>
+    <button id="btn14">Show Html</button>
+    <button id="btn15">Show Value</button>
+    <button id="btn16">Show URL</button>
+    <br><br>
+    <p id="p10">this is some text</p>
+    <p id="p11">This is another text</p>
+    Name <input type="text" value="Mickey Mouse" id="p12"><br><br>
+    <p><a href="https://www.w3schools.com" id="w3s2">W3Schools.com</a></p>
+    <button id="btn17">Set Text</button>
+    <button id="btn18">Set Html</button>
+    <button id="btn19">Set Value</button>
+    <button id="btn20">Set URL</button>
+    <br><br>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+
+    <p id="p13">This is a paragraph.</p>
+    <p id="p14">This is another paragraph.</p>
+
+    <button id="btn21">Add class</button>
+    <button id="btn22">Remove class</button>
+    <button id="btn23">Toggle class</button>
+    <br><br>
+
+    <p style="background-color:#ff0000" id="p15">This is a paragraph.</p>
+    <p style="background-color:#00ff00" id="p16">This is a paragraph.</p>
+    <button id="btn24">Return background-color of p</button>
+    <button id="btn25">Set background-color of p</button>
+    <button id="btn26">Set multiple styles for p</button>
+
+    <br><br>
+    <div id="div5"></div>
+    <br>
+    <button id="btn27">Display dimensions of div</button>
+    <br><br>
+
+    <button id="btn28">Get External Content</button>
+    <p id="p17"></p>
+
+    <br><br>
+    <button  class="test1">Send an HTTP GET request to a page and get the result back</button>
+    <button class="test2">Send an HTTP POST request to a page and get the result back</button>
+</body>
+</html>
