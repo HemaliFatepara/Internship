@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<style>
+
+    .wrapper{
+      padding: 70px 0;
+    }
+    /* Default slide */
+    .center-slider .slick-slide{
+      background-color: #b32532;
+      color: #FFF;
+      height: 200px;
+      margin: 0 15px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0.8);
+      transition: all 0.4s ease-in-out;
+    }
+    .center-slider .slick-slide,
+    .center-slider .slick-slide[aria-hidden="true"]:not(.slick-cloned) ~ .slick-cloned[aria-hidden="true"] {
+      transform: scale(0.8, 0.8);
+      transition: all 0.4s ease-in-out;
+    }
+
+    /* Active center slide (You can change anything here for cenetr slide)*/
+    .center-slider .slick-center,
+    .center-slider .slick-slide[aria-hidden="true"]:not([tabindex="-1"]) + .slick-cloned[aria-hidden="true"] {
+      transform: scale(1.1);
+      background-color: #000000;
+    }
+    .center-slider .slick-current.slick-active{
+      transform: scale(1.1);
+      background-color: #000000;
+    }
+
+    .slick-prev,.slick-next {
+      position: absolute;
+      bottom: -60px; /* Adjust this value to change the distance from the bottom */
+      background-color: #04AA6D;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .slick-prev {
+      left: calc(45% - 70px); /* Adjust this value to position the "Previous" button */
+    }
+
+    .slick-next {
+      left: calc(44% + 70px); /* Adjust this value to position the "Next" button */
+    }
+    .wrapper{
+        
+        margin: auto;
+        width: 60%;
+        border: 3px solid green;
+        padding: 90px;
+    }
+
+    .slick-next:before, .slick-prev:before{
+        color: #000;
+        font-size: 26px;
+    }
+</style> 
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="center-slider">
+        <div>Slide 1</div>
+        <div>Slide 2</div>
+        <div>Slide 3</div>
+        <div>Slide 4</div>
+        <div>Slide 5</div>
+        <div>Slide 6</div>
+      </div>
+  </div>
+
+<script>
+ $('.center-slider').slick({
+    slidesToShow: 3,
+        slidesToScroll: 1,
+        centerMode: true,
+        arrows: true,
+        dots: false,
+        speed: 300,
+        centerPadding: '20px',
+        infinite: true,
+        autoplaySpeed: 5000,
+        autoplay: true
+});
+</script>
+
+</body>
+</html>
