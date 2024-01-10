@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Styled Datepicker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- jQuery UI CSS -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI library -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <!-- Flatpickr library -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="date"]:focus {
+      border-color: #4CAF50;
+      box-shadow: 0 0 5px #4CAF50;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    /* Customizing the datepicker
+    .ui-datepicker {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+    }
+
+    .ui-datepicker-header {
+      background-color: #4CAF50;
+      color: white;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    .ui-datepicker-title {
+      margin: 0;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      display: none;
+    }
+
+    .ui-datepicker-calendar {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .ui-datepicker-calendar td {
+      padding: 5px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .ui-datepicker-calendar .ui-state-default {
+      background-color: #fff;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+
+    .ui-datepicker-calendar .ui-state-default:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .ui-datepicker-calendar .ui-state-active {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .ui-datepicker-calendar .ui-datepicker-unselectable:hover {
+      background-color: transparent;
+      color: #ccc;
+      cursor: default;
+    } */
+  </style>
+
+  <!-- <script>
+    $(function() {
+      // Initialize datepicker for the birthday field
+      $("#birthday").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        enableTime: true,
+        yearRange: "1900:+nn",
+        dateFormat: "yy-mm-dd H:i", 
+      });
+    });
+</script> -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      flatpickr('#birthday', {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i", // Year-Month-Day Hours:Minutes format
+        defaultDate: new Date() // Set default date and time to current date and time
+      });
+    });
+  </script>
+</head>
+<body>
+
+<form>
+  <h2>Information Form</h2>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="birthday">Birthday:</label>
+  <input type="text" id="birthday" name="birthday" required>
+
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,404 @@
+
+// // spered operator
+
+// let colors = ['Red', 'Yellow'];  
+// let newColors = [...colors, 'Violet', 'Orange', 'Green'];  
+// console.log(newColors);  
+
+// let str = ['A', ...'EIO', 'U'];  
+// console.log(str);  
+
+
+// // rest parameter :- should be always last
+
+
+// function show(...args) {  
+//   let sum = 0;  
+//   for (let i of args) {  
+//       sum += i;  
+//   }  
+//   console.log("Sum = "+sum);  
+// }  
+// show(10, 20, 30);  
+
+
+// var colors1 = ["Violet", "Indigo", "Blue", "Green", "Yellow", "Orange", "Red"];    
+    
+// // destructuring assignment    
+
+// var [a,b,...args] = colors1;    
+// console.log(a);     
+// console.log(b);     
+// console.log(args);  
+
+
+// // Rest Parameter in a dynamic function
+
+// let num = new Function('...args','return args');  
+// console.log(num(10, 20, 30));  
+
+// // Arithmetic Operators
+
+// var x = 30;   
+// var y = 20 ;  
+  
+// console.log("Addition: " + (x + y) );  
+// console.log("Subtraction: " + (x - y) );  
+// console.log("Multiplication: " + (x * y) );  
+// console.log("The Division will give you the quotient: " + (x / y) );  
+// console.log("Modulus will give you the Remainder: " + (x % y) );  
+// // pre-increment   
+// console.log("Value of x after pre-increment: "  + (++x) );  
+// // post-increment   
+// console.log("Value of x after post-increment: " + (x++) );  
+// // pre-decrement   
+// console.log("Value of y after pre-decrement: "  + (--y) );  
+// // post-decrement   
+// console.log("Value of y after post-decrement: " + (y--) );  
+
+// // Relational Operators
+
+// console.log("Value of x: " + x);   
+// console.log("Value of y: " + y);   
+// var result = x > y;   
+// console.log("x is greater than y: " + result);   
+// result = x < y;   
+// console.log("x is smaller than y: " + result);   
+// result = x >= y;   
+// console.log("x is greater than or equal to  y: " + result);   
+// result = x <= y;   
+// console.log("x is smaller than or equal to y: " + result);   
+// result = x == y;   
+// console.log("x is equal to y: " + result);   
+// result = x != y;   
+// console.log("x not equal to  y: " + result);  
+
+// // Logical Operators
+ 
+// var result = ((x < 40) && (y <= 90));   
+// console.log("(x < 40) && (y <= 90): ", result);   
+  
+// var result = ((x == 50) || (y > 80));   
+// console.log("(x == 50) || (y > 80): ", result);   
+  
+// var result = !((x > 20) && (y >= 80));   
+// console.log("!((x > 20) && (y >= 80)): ", result); 
+
+// // Assignment Operators
+
+// x = y;  
+// console.log("After assignment the value of x is:  " + x);   
+  
+// x += y;   
+// console.log("x+=y: " + x);   
+  
+// x -= y;   
+// console.log("x-=y: " + x);   
+  
+// x *= y;   
+// console.log("x*=y: " + x);   
+  
+// x /= y;   
+// console.log("x/=y: " + x);   
+  
+// x %= y;   
+// console.log("x%=y: " + x);  
+
+// Bitwise Operators
+
+// var x = 70; /* 70 = 0100 0110 */  
+// var y = 80; /* 80 = 0101 0000 */  
+// var res = 0;  
+  
+// console.log("Value of 70 in binary 0100 0110" );  
+// console.log("Value of 80 in binary 0101 0000" );  
+  
+  
+// res = x & y;       /* 64 = 0100 0000 */  
+// console.log("Value of x & y = %d\n", res );  
+  
+// res = x | y;       /* 86 = 0101 0110 */  
+// console.log("Value of x | y = %d\n", res );  
+  
+// res = x ^ y;       /* 22 = 0001 0110 */  
+// console.log("Value of x ^ y = %d\n", res );  
+  
+// res = ~x;          /*-71 = -0100 0111 */  
+// console.log("Value of ~ x = %d\n", res );  
+  
+// res = x << 2;     /* 280 = 1000 11000 */  
+// console.log("Value of x << 2 = %d\n", res );  
+// res = x >> 2;     /* 17 = 0001 0001 */  
+// console.log("Value of x >> 2 = %d\n", res );  
+
+
+// // Miscellaneous Operators
+
+
+// var num1 = 80;  
+// var num2 = -num1;  
+// console.log("Value of num1 = " +num1); // It will give 80  
+// console.log("Value of num2 = " +num2); // It will give -80  
+
+
+// var str1 = 'Hello' + 'World';  
+// var str2 = 'Welcome ' + 'Back';  
+// console.log(str1);  
+// console.log(str2);  
+
+
+// var num11 = 30;  
+// var num22 = 20;  
+// var res = num11 > num22 ? "Yes 30 is greater than 20" : "No It's not";  
+// console.log(res);  
+
+
+// var a = 20;  
+// var b = true;  
+// var c = 'Hello';  
+// var d = 'true';  
+// var e;  
+// console.log("Variable a is " +typeof(a));  
+// console.log("Variable b is " +typeof(b));  
+// console.log("Variable c is a " +typeof(c));  
+// console.log("Variable d is a " +typeof(d));  
+// console.log("Variable e is " +typeof(e));  
+
+// // for loops
+
+// var i;  
+// for(i=1;i<=10;i++)  
+// {  
+//    console.log("2 x "+ i +" =", 2*i);  
+// }  
+
+
+// "use strict"   
+// for(let temp, a = 0, b = 1; b<40; temp = a, a = b, b = a + temp)   
+// console.log(b);  
+
+
+// for(;;)  
+// {    
+//    console.log("infinitive loop");  // It will print infinite times  
+// }    
+
+// var y = 0;  
+// while (y < 4) {  
+//     console.log(y);  
+//     y++;  
+// }  
+
+// var count = 6, fact = 1;  
+// do {  
+//     fact = fact * count--;  
+// } while (count > 0);  
+  
+// console.log(fact);  
+
+
+// while (count > 0)   
+// {  
+//     fact = fact * count--;  
+// }  
+// console.log(fact);  
+
+// var n = 1;  
+// while(n<=7)   
+// {   
+//    console.log("n="+n);   
+//    if(n==4)  
+//    {  
+//        break;  
+//    }   
+//    n++;  
+// }  
+
+// while(n<=5)   
+// {   
+//    n++;  
+//    if(n==3)  
+//    {  
+//        continue;  
+//    }   
+//    console.log("n = "+n);   
+// }  
+
+
+// var x, y;  
+  
+// loop1:         //The first for statement is labeled as "loop1."  
+  
+// for (x = 1; x < 4; x++) {   
+//      loop2:    //The second for statement is labelled as "loop2"  
+//    for (y = 1; y < 4; y++) {    
+//       if (x === 2 && y === 2) {  
+//          break loop1;  
+//       }  
+//       console.log('x = ' + x + ', y = ' + y);  
+//    }  
+// }  
+
+
+// loop1:   //The first for statement is labelled as "loop1"  
+// for (x = 1; x < 4; x++) {       
+//    loop2:  //The second for statement is labelled as "loop2"  
+//    for (y = 1; y < 4; y++) {     
+//       if (x === 2 && y === 2) {  
+//          continue loop1;  
+//       }  
+//       console.log('x = ' + x + ', y = ' + y);  
+//    }  
+// }  
+
+
+// var  x = 78;  
+// if (x>70) {   
+//    console.log("x is greater")   
+// }  
+
+// var x = 40, y=20;   
+// if (x < y)   
+// {   
+//    console.log("y is greater");   
+// }   
+// else   
+// {   
+//    console.log("x is greater");   
+// }  
+
+
+// var a = 10, b = 20, c = 30;   
+// if( a > b && a > c) {   
+//    console.log("a is greater");   
+// } else if( b > a && b > c ) {   
+//     console.log("b is greater");   
+// } else {   
+//     console.log("c is greater");   
+// }  
+
+
+// var num = 20;  
+// if (num > 10)  
+// {  
+// if (num%2==0)  
+// console.log( num+ " is greater than 10 and even number");  
+// else  
+// console.log(num+ " is greater than 10 and odd number");  
+// }  
+// else  
+// {  
+// console.log(num+" is smaller than 10");  
+// }  
+// console.log("After nested if statement");  
+
+
+// var num = 5;   
+// switch(num) {   
+//     case 0 : {   
+//       console.log("Sunday");   
+//       break;   
+//    }   
+//    case 1 : {   
+//     console.log("Monday");   
+//     break;   
+//  }   
+//    case 2 : {   
+//     console.log("Tuesday");   
+//     break;   
+//  }      
+//    case 3 : {   
+//     console.log("Wednesday");   
+//     break;   
+//  }  
+//    case 4 : {   
+//     console.log("Thursday");   
+//     break;   
+//  }   
+//    case 5 : {   
+//     console.log("Friday");   
+//     break;   
+//  }   
+//    case 6 : {   
+//     console.log("Saturday");   
+//     break;   
+//  }      
+//    default: {   
+//       console.log("Invalid choice");   
+//       break;                
+//    }   
+// }  
+
+// function mul( x , y) {   
+//     var c = x * y;  
+//     console.log("x = "+x);  
+//     console.log("y = "+y);  
+//     console.log("x * y = "+c);   
+//  }   
+// mul(20,30);  
+
+
+// function show (num1, num2=200)   
+// {  
+//     console.log("num1 = " +num1);  
+//     console.log("num2 = " +num2);  
+  
+// }  
+// show(100);  
+
+
+// setTimeout(function()   
+// {  
+//    console.log('Hello World');  
+//  }, 2000);  
+
+
+// var anon = function(a,b)  
+// {   
+//    return a+b   
+// }  
+// function sum() {   
+//    var res;   
+//    res = anon(100,200);   
+//    console.log("Sum: "+res)    
+// }   
+// sum()  
+
+
+// function* gen()  
+// {  
+// yield 100;  
+// yield;  
+// yield 200;  
+// }  
+// // Calling the Generator Function  
+// var mygen = gen();  
+// console.log(mygen.next().value);  
+// console.log(mygen.next().value);  
+// console.log(mygen.next().value);  
+
+
+function* myGen()  {  
+yield 'First yield statement';  
+yield 'Second yield statement';  
+return 'Return statement';  
+yield 'Second yield statement';  
+}  
+let genobj = myGen();  
+  
+console.log(genobj.next());    //returns {value: 'First yield statement', done: false}  
+  
+console.log(genobj.next());   //returns {value: 'Second yield statement', done: false}  
+  
+console.log(genobj.next());  //returns {value: 'Return statement', done: true}  
+  
+console.log(genobj.next()); //returns {value: undefined, done: true}  
+
+
+var colors = ["Violet", "Indigo", "Blue", "Green", "Yellow", "Orange", "Red"];  
+  
+// destructuring assignment  
+var [a,b,...args] = colors;  
+console.log(a);   
+console.log(b);   
+console.log(args);  
