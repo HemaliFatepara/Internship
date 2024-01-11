@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<!-- Basic stylesheet -->
+<link rel="stylesheet" href="./owl-carousel/owl.carousel.css">
+ 
+<!-- Default Theme -->
+<link rel="stylesheet" href="./owl-carousel/owl.theme.css">
+ 
+<!-- You can use latest version of jQuery  -->
+<script src="./assets/js/jquery-1.9.1.min.js"></script>
+ 
+<!-- Include js plugin -->
+<script src="./owl-carousel/owl.carousel.js"></script>
+
+<script>
+$(document).ready(function() {
+ 
+ $("#owl-demo").owlCarousel({
+
+     navigation : true, // Show next and prev buttons
+
+     slideSpeed : 300,
+     paginationSpeed : 400,
+
+     items : 1, 
+     itemsDesktop : false,
+     itemsDesktopSmall : false,
+     itemsTablet: false,
+     itemsMobile : false
+
+ });
+
+});
+</script>
+<style>
+    #owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+</style>
+</head>
+<body>
+
+    <div id="owl-demo" class="owl-carousel owl-theme">
+ 
+        <div class="item"><img src="./demos/assets/fullimage1.jpg" alt="The Last of us"></div>
+        <div class="item"><img src="./demos/assets/fullimage2.jpg" alt="The Last of us"></div>
+        <div class="item"><img src="./demos/assets/fullimage3.jpg" alt="The Last of us"></div>
+        <div class="item"><img src="./demos/assets/fullimage4.jpg" alt="The Last of us"></div>
+        <div class="item"><img src="./demos/assets/fullimage5.jpg" alt="The Last of us"></div>
+        <div class="item"><img src="./demos/assets/fullimage6.jpg" alt="The Last of us"></div>
+        <div class="item"><img src="./demos/assets/fullimage7.jpg" alt="The Last of us"></div>
+    
+       
+      </div>
+ 
+  
+</body>
+</html>

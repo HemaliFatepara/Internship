@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<!-- Basic stylesheet -->
+<link rel="stylesheet" href="./owl-carousel/owl.carousel.css">
+ 
+<!-- Default Theme -->
+<link rel="stylesheet" href="./owl-carousel/owl.theme.css">
+ 
+<!-- You can use latest version of jQuery  -->
+<script src="./assets/js/jquery-1.9.1.min.js"></script>
+ 
+<!-- Include js plugin -->
+<script src="./owl-carousel/owl.carousel.js"></script>
+
+<script>
+ $(function() {
+  $('.owl-carousel').owlCarousel({
+    // ... carousel options
+  });
+
+  $('.item').data('tilt', ''); // Use data() for data attributes
+
+  $('.item').click(function() {
+    $('.modal').fadeIn().addClass('open');
+  });
+
+  $('.closebtn').click(function() {
+    $('.modal').fadeOut().removeClass('open');
+  });
+});
+
+</script>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+body {
+  background: #151515;
+  overflow: hidden;
+  height: 100%;
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  line-height: 18px;
+}
+
+.owl-carousel {
+  float: right;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.owl-carousel.owl-item {
+  opacity: 0.5;
+  transition: 300ms;
+  width: 400px;
+}
+
+.owl-carousel .owl-item.center {
+  opacity: 1;
+}
+
+.modal {
+  display: none;
+  float: left;
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  right: 20px;
+  left: 20px;
+  z-index: 1;
+  background: #333;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.w50 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+
+.w50.bg {
+  background: #333 url(https://images.unsplash.com/photo-1469826834904-e92950ee5bf9) no-repeat;
+  background-size: cover;
+}
+
+.w50.info {
+  background: #343434;
+  padding: 4% 5%;
+  transform: scale(0);
+}
+
+.closebtn {
+  position: absolute;
+  color: #fff;
+  top: 0;
+  right: 0;
+  font-size: 22px;
+  margin: 15px 18px;
+  cursor: pointer;
+  border-radius: 42px;
+  width: 42px;
+  height: 42px;
+  font-weight: bold;
+  line-height: 33px;
+  border: 2px solid #fff;
+  text-align: center;
+  transition: 300ms;
+}
+.closebtn:hover {background: #fff; color: #343434;}
+
+.info h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0;
+  display: block;
+}
+
+.info p {
+  line-height: 24px;
+  font-size: 15px;
+  display: block;
+  margin: 15px 0;
+}
+
+.owl-item {cursor: pointer;}
+
+.modal.open { transform: scale(0); animation: anim1 450ms 300ms ease-in forwards;}
+.modal.open .w50 {animation: anim2 350ms 900ms ease-in forwards;}
+.modal.open .w50.info {width: 50%; animation: anim3 350ms 900ms ease-in forwards;}
+
+@keyframes anim1 {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes anim2 {
+  to {
+     width: 50%;
+  }
+}
+
+@keyframes anim3 {
+  to {
+    transform: scale(1);
+  }
+}
+
+</style>
+</head>
+<body>
+    <div class="galeri-my-gallery">
+        <div class="owl-carousel">
+      
+          <div class="item">
+            <img src="https://source.unsplash.com/400x400/?nature" alt="" >
+          </div>
+          <div class="item">
+            <img src="https://source.unsplash.com/400x400/?nebula" alt="">
+          </div>
+          <div class="item">
+            <img src="https://source.unsplash.com/400x400/?abstract" alt="">
+          </div><div class="item">
+            <img src="https://source.unsplash.com/400x400/?landscape" alt="">
+          </div>
+          <div class="item">
+            <img src="https://source.unsplash.com/400x400/?portrait" alt="">
+          </div>
+          <div class="item">
+            <img src="https://source.unsplash.com/400x400/?art" alt="">
+          </div><div class="item">
+            <img src="https://source.unsplash.com/400x400/?natural" alt="">
+          </div>
+          
+      
+        </div>
+      </div>
+      
+      <div class="modal">
+        <div class="w50 bg"></div>
+        <div class="w50 info">
+          <h2>Lorem ipsum dolor sit amet.</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, tempora voluptates consectetur eveniet molestias velit quis vel nam deleniti maxime perspiciatis sapiente adipisci magnam, dicta culpa ad quibusdam voluptatem! Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Itaque, deleniti sit!</p>
+          <p> Magni veritatis rerum accusamus, nam, at veniam, tempora ipsam quidem aliquid dolor reiciendis commodi nisi! Neque aliquid quidem placeat? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi optio ratione harum iste blanditiis neque!
+            Cum nihil repudiandae voluptate illo ea aspernatur similique, omnis! Error alias delectus porro maxime aliquid!</p>
+          <h2>Velit soluta.</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati est maiores cumque ullam iste odit magni officia? Recusandae sit et velit officiis, illum dignissimos aperiam soluta facilis, obcaecati dolorem nihil.</p>
+        </div>
+        <div class="closebtn">x</div>
+      </div>
+</body>
+</html>

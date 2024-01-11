@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Task-6</title>
+</head>
+<style>
+/* Style for the Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+  }
+  
+  /* Close button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+  }
+  
+  /* Open Modal button */
+  #openModalBtn {
+    margin: 20px;
+    padding: 10px 36px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #openModalBtn:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  #openModalBtn:focus {
+    outline: none;
+  }
+  
+  /* Image style */
+  img {
+    width: 100%;
+    max-width: 400px; /* Adjust the max-width as needed */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Text style */
+  h2, p {
+    margin: 0;
+  }
+  
+  /* Additional styling for content */
+  p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  button {
+  /* Basic styling */
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 15px 32px; /* Generous padding */
+  text-align: center; /* Centered text */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer; /* Indicate interactivity */
+  font-size: 16px; /* Larger font for readability */
+  font-weight: bold; /* Add visual emphasis */
+
+  /* Creative effects */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: all 0.3s ease-in-out; /* Smooth transitions */
+
+  /* Hover effect */
+  &:hover {
+    background-color: #3e8e41; /* Darker green on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  }
+}
+
+</style>
+<body>
+
+<!-- Button to Open the Modal -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023.jpg" style="width: 200px;"><br>
+<button id="openModalBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" id="closeModalBtn">&times;</span>
+    <!-- <img src="https://placekitten.com/400/300" alt="Modal Image"> -->
+
+    <h1>Virat Kohli</h1>
+    <img src="https://kmb.kerala.gov.in/ckeditor/samples/fonts/wp-content/uploads/2023/12/virat-kohli-century-photo_75b40766d.jpg" alt="Modal Image">
+    
+    <p style="text-align: justify;">Virat Kohli, the dynamic cricketer hailing from Delhi, India, has left an indelible mark on the world of cricket with his aggressive and consistent batting prowess. Born on November 5, 1988, Kohli's remarkable leadership skills have shone as the captain of the Indian national cricket team. His extraordinary achievements include holding records for the fastest milestones in ODI runs, demonstrating his unmatched dedication to the sport. Beyond cricket, Kohli is admired for his philanthropic endeavors and efforts to promote a healthy lifestyle, making him not only a cricketing sensation but also a role model for aspiring athletes around the globe.</p><br>
+    <button onclick="window.open('https://en.wikipedia.org/wiki/Virat_Kohli', '_blank')">More Information</button>
+
+  </div>
+</div>
+
+<script>
+
+      // Get references to modal and buttons
+var modal = document.getElementById('myModal');
+var openModalBtn = document.getElementById('openModalBtn');
+var closeModalBtn = document.getElementById('closeModalBtn');
+
+// Event listener to open the modal
+openModalBtn.addEventListener('click', function() {
+  modal.style.display = 'block';
+});
+
+// Event listener to close the modal
+closeModalBtn.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
+// Close the modal if the user clicks outside of it
+window.addEventListener('click', function(event) {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+</script>
+</body>
+</html>
