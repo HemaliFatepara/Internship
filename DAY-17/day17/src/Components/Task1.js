@@ -1,5 +1,5 @@
 import React, { useState  } from 'react';
-const Task3 = () => {
+const Task1 = () => {
   const [firstname , setFirstName] = useState('')
   const [lastname , setLastName] = useState('')
   const [email , setEmail] = useState('')
@@ -21,7 +21,6 @@ function getValue() {
 }
 
 const handleSubmit = (e) => {
-
     e.preventDefault();
     setItem([...item,{Firstname:firstname,Lastname:lastname,Email:email,Gender:gender,Address:addr,ProgramingLanguage:job , Databases:db}])
     setFirstName('')
@@ -53,40 +52,26 @@ React.useEffect(()=>{
        localStorage.setItem('data',JSON.stringify(item))   
 }, [item])
 
+
 const tdata= JSON.parse(localStorage.getItem('data',item))
-const tfirstname = tdata.map((item) => {
-  return (
-    item.Firstname
-    )
-}); 
 
-console.log(tfirstname);
-
-
-console.log(tdata)
-console.log(tfirstname)
-const Table = () => {
-  
-  return (
-    <div>
-      <table>
-        <tr>
-        <th>Firstname: </th>
-        <th>Lastname: </th>
-        <th>Gender: </th>
-        <th>Email: </th>
-        <th>ProgramingLanguage: </th>
-        <th>Databases: </th>
-        </tr>    
-      </table>
-    </div>
-  )
+const handleDelete = () => {
+    const tdataa= JSON.parse(localStorage.getItem('data',item))
+    tdataa.splice(0 , 1)
+    localStorage.setItem('data', JSON.stringify(tdataa));
 }
 
-
+// const HandleEdit = () => {
+//     const [updateitem, setUpdateItem] = useState(() => {
+//         const savedState = localStorage.getItem("data");
+//         const updateitem = JSON.parse(savedState);
+//         setUpdateItem('Test')
+//         return updateitem || [];
+//     });
+// }
 
 return(
-
+<div>
 <form onSubmit={handleSubmit }>
 
 First Name: <input type = "text" name="name" value={firstname} onChange={(e) => setFirstName(e.target.value)}/><br /><br />
@@ -122,12 +107,45 @@ Databases: <br /><br />
 <label for="val3"> PostgreSQL</label><br /><br />
 </div>
 
-<div><Table /></div>
-
-<input type = "submit" onSubmit={updateItem}/>
+<input type = "submit" onSubmit={updateItem}/><br /><br />
 
 </form>
 
+    <div>
+     <table>
+        <thead>
+        <tr >
+        <th>Firstname </th>
+        <th>Lastname </th>
+        <th>Email </th>
+        <th>Gender </th>
+        <th>Address </th>
+        <th>ProgramingLanguage </th>
+        <th>Databases </th>
+        <th>Options </th>
+        </tr> 
+        </thead>
+        <tbody>
+          {tdata && tdata.map((item) => {
+           return (
+            <tr>
+              <td>{item.Firstname}</td>
+              <td>{item.Lastname}</td>
+              <td>{item.Email}</td>
+              <td>{item.Gender}</td>
+              <td>{item.Address}</td>
+              <td>{item.ProgramingLanguage.join(",")}</td>
+              <td>{item.Databases}</td>
+              <td>
+                 <button>Edit</button>
+                 <button onClick={() => handleDelete()}>Delete</button> 
+               </td> 
+             </tr>
+          )})}
+        </tbody>
+      </table>  
+    </div>   
+</div>
 )}
 
-export default Task3;
+export default Task1;
