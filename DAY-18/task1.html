@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+    <script>
+        $(document).ready(function() {
+            $("#myForm").submit(function(event) {
+                event.preventDefault();
+                var localdata = localStorage.getItem("data");
+                var data = [];
+
+                if(localdata) {
+                    data = JSON.parse(localdata);   
+                }   
+
+                var fnVal = ($("#fn").val())
+                var lnVal = ($("#ln").val())
+                var Email = ($("#email").val())
+                var addr = ($("#addr").val())   
+                var gender = ($("#radio").find("input:radio:checked").val())
+    
+                var db =[];
+                $.each($("input[name='val']:checked"), function(){
+                    db.push($(this).val());
+                });
+    
+                var programing=[];
+                $('#drop :selected').each(function(){
+                    programing.push($(this).val());
+                });
+            
+                data.push({
+                    "Firstname": fnVal,
+                    "Lastname": lnVal,
+                    "EmailID" : Email,
+                    "Address": addr,
+                    "ProgramingLanguage": programing,
+                    "DataBases" : db,
+                    "Gender": gender
+                });
+                localStorage.setItem("data", JSON.stringify(data));
+            });
+        });
+</script> 
+<script>
+
+$(document).ready(function(){
+      
+      var data = JSON.parse(localStorage.getItem('data'))
+      var datacount = data.length;
+              if (datacount > 0)
+              {
+                  var render = "<table border='1'>";
+                  render += "<tr><th>Firstname</th><th>Lastname</th><th>Email</th><th>Gender</th><th>Address</th><th>ProgramingLanguage</th><th>Databases</th>"
+                 for (i = 0; i < datacount; i++) {
+                      
+                      render += "<tr><td>" + data[i].Firstname + "</td>"
+                      render += "<td>" + data[i].Lastname + "</td>";
+                      render += "<td>" + data[i].EmailID + "</td>";
+                      render += "<td>" + data[i].Gender + "</td>";
+                      render += "<td>" + data[i].Address + "</td>";
+                      render += "<td>" + data[i].ProgramingLanguage + "</td>";
+                      render += "<td>" + data[i].DataBases + "</td>";
+                  }
+                  render+="</table>";
+                  document.getElementById("tb").innerHTML = render;
+              }
+
+  })    
+</script>
+<body>
+    <div>
+        <form id="myForm">
+
+            First Name: <input type = "text" id="fn"/><br /><br />
+            
+            Last Name: <input type = "text" name="price" id="ln"/><br /><br />
+            
+            Enter Your Email: <input type='email' id="email"></input><br /><br />
+            
+           
+            <div id="radio"> Select Your Gender: 
+                <label><input type='radio' name="Gender" value="Male"></input>Male</label>
+                <label><input type='radio' name="Gender"  value="Female"></input>Female</label>
+                <br /><br />
+            </div>
+
+            Enter Your Address: <br /><br />
+            <textarea placeholder="Enter your Addr.." id="addr"></textarea>
+            <br /><br />
+            
+            Programing Language: <br /><br /> 
+            <select multiple id="drop">
+            <option>React js</option>
+            <option>Node js</option>
+            <option> Andriod</option>
+            <option>php</option>
+            </select><br /><br /> 
+            
+            <div id="checkbox">
+            Databases: <br /><br /> 
+            <input type="checkbox" id="val1" name="val" value="MongoDB"/> 
+            <label for="val1"> Mongo DB</label><br />
+            <input type="checkbox" id="val2" name="val" value="MySQL" />
+            <label for="val2"> MySQL</label><br />
+            <input type="checkbox" id="val3" name="val" value="PostgreSQL" />
+            <label for="val3"> PostgreSQL</label><br /><br />
+            </div>
+            
+            <input type = "submit" id="mybtn"/><br /><br />
+
+        </form> 
+        <div id="tb">
+        </div>
+</body> 
+</html>

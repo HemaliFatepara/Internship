@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function loadDoc () {
+        var xttp = new XMLHttpRequest();
+        xttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status== 200) {
+                document.getElementById("demo").innerHTML = this.responseText;
+            }
+        }
+        xttp.open("GET" , "./products.json" , true);
+        xttp.send();
+    }
+
+</script>
+<body>
+    <div id="demo">
+        <h1>The XMLHttpRequest Object</h1>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+</body>
+</html>
