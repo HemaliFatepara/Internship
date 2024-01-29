@@ -1,0 +1,180 @@
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<title></title> 
+<script src= "https://code.jquery.com/jquery-3.5.1.js"> </script> 
+</head> 
+<style>
+  /* Style for the Modal */
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    }
+    
+    .modal-content {
+      background-color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+    }
+    
+    /* Close button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+    }
+    
+    /* Open Modal button */
+    #openModalBtn {
+      margin: 20px;
+      padding: 10px 36px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    #openModalBtn:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    #openModalBtn:focus {
+      outline: none;
+    }
+    
+    /* Image style */
+    img {
+      width: 100%;
+      max-width: 400px; /* Adjust the max-width as needed */
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    
+    /* Text style */
+    h2, p {
+      margin: 0;
+    }
+    
+    /* Additional styling for content */
+    p {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    button {
+    /* Basic styling */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 15px 32px; /* Generous padding */
+    text-align: center; /* Centered text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer; /* Indicate interactivity */
+    font-size: 16px; /* Larger font for readability */
+    font-weight: bold; /* Add visual emphasis */
+  
+    /* Creative effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
+  
+    /* Hover effect */
+    &:hover {
+      background-color: #3e8e41; /* Darker green on hover */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    }
+  }
+  
+  </style>
+<body> 
+
+
+
+	<div> 
+			<script> 
+				$(document).ready(function () { 
+					$.getJSON("./products.json", 
+						function (data) { 
+						  var phones = ''; 
+						  // $.each(data.products, function (key, value ) {
+                $('#demo').append('<h3> Student Details </h3>');  
+                $('#demo').append('<p> Name: ' + data.products[0].title + '</p>');  
+                $('#demo').append('<p> description: ' + data.products[0].description + '</p>');  
+                $('#demo').append('<p> price: ' + data.products[0].price + '</p>');  
+                $('#demo').append('<p> discountPercentage: ' + data.products[0].discountPercentage + '</p>');  
+                $('#demo').append('<p> rating: ' + data.products[0].rating + '</p>');  
+                $('#demo').append('<p> stock: ' + data.products[0].stock + '</p>');  
+                $('#demo').append('<p> brand: ' + data.products[0].brand + '</p>');  
+                $('#demo').append('<p> category: ' + data.products[0].category + '</p>');  
+                $('#demo').append('<img src="data.products[0].thumbnail"> thumbnail: '+ '</img>');  
+            
+  
+					}); 
+				}); 
+
+			</script> 
+	</div> 
+
+
+<button id="openModalBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" id="closeModalBtn">&times;</span>
+   <p id="demo"></p>
+
+  </div>
+</div>
+
+<script>
+
+      // Get references to modal and buttons
+var modal = document.getElementById('myModal');
+var openModalBtn = document.getElementById('openModalBtn');
+var closeModalBtn = document.getElementById('closeModalBtn');
+
+// Event listener to open the modal
+openModalBtn.addEventListener('click', function() {
+  modal.style.display = 'block';
+});
+
+// Event listener to close the modal
+closeModalBtn.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
+// Close the modal if the user clicks outside of it
+window.addEventListener('click', function(event) {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+</script>
+
+
+
+</body> 
+</html> 
+
+
