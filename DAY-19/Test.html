@@ -124,7 +124,7 @@
                 $('#demo').append('<p> stock: ' + data.products[0].stock + '</p>');  
                 $('#demo').append('<p> brand: ' + data.products[0].brand + '</p>');  
                 $('#demo').append('<p> category: ' + data.products[0].category + '</p>');  
-                $('#demo').append('<img src="data.products[0].thumbnail"> thumbnail: '+ '</img>');  
+                $('#demo').append('<img src="JSON.stringify(data.products[0].thumbnail)"> thumbnail: '+ '</img>');  
             
   
 					}); 
