@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="./country-states.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"></head>
+<script src= "https://code.jquery.com/jquery-3.5.1.js"> </script> 
+<style>
+    /* all */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --main-blue: #71b7e6;
+  --main-purple: #9b59b6;
+  --main-grey: #ccc;
+  --sub-grey: #d9d9d9;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center; /*center vertically */
+  align-items: center; /* center horizontally */
+  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+  padding: 10px;
+}
+/* container and form */
+.container {
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+}
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.container .title::before {
+  content: "";
+  position: absolute;
+  height: 3.5px;
+  width: 30px;
+  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+  left: 0;
+  bottom: 0;
+}
+
+.container form .user__details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+/* inside the form user details */
+form .user__details .input__box {
+  width: calc(100% / 2 - 20px);
+  margin-bottom: 15px;
+}
+
+.user__details .input__box .details {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+.user__details .input__box input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid var(--main-grey);
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.user__details .input__box input:focus,
+.user__details .input__box input:valid {
+  border-color: var(--main-purple);
+}
+
+/* inside the form gender details */
+
+form .gender__details .gender__title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .gender__details .category {
+  display: flex;
+  width: 80%;
+  margin: 15px 0;
+  justify-content: space-between;
+}
+
+.gender__details .category label {
+  display: flex;
+  align-items: center;
+}
+
+.gender__details .category .dot {
+  height: 18px;
+  width: 18px;
+  background: var(--sub-grey);
+  border-radius: 50%;
+  margin: 10px;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#dot-1:checked ~ .category .one,
+#dot-2:checked ~ .category .two,
+#dot-3:checked ~ .category .three {
+  border-color: var(--sub-grey);
+  background: var(--main-purple);
+}
+
+form input[type="radio"] {
+  display: none;
+}
+
+/* submit button */
+form .button {
+  height: 45px;
+  margin: 45px 0;
+  /* margin-bottom: -15px; */
+}
+
+form .button input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+  transition: all 0.3s ease;
+}
+
+form .button input:hover {
+  background: linear-gradient(-135deg, var(--main-blue), var(--main-purple));
+}
+
+@media only screen and (max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+
+  form .user__details .input__box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  form .gender__details .category {
+    width: 100%;
+  }
+
+  .container form .user__details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .user__details::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+</style>
+<body>
+    <div class="container">
+        <div class="title">Registration</div>
+        <form id="first_form">
+            <div class="user__details">
+                <div class="input__box">
+                    <span class="details">First Name<span style="color: red !important; display: inline; float: none;">*</span></span>
+                    <input type="text" placeholder="First Name"  id="first_name">
+                </div>
+                <div class="input__box">
+                    <span class="details">Last Name<span style="color: red !important; display: inline; float: none;">*</span></span>
+                    <input type="text" placeholder="Last Name"  id="last_name">
+                </div>
+                <div class="input__box">
+                    <span class="details">Email<span style="color: red !important; display: inline; float: none;">*</span></span>
+                    <input type="text" placeholder="Email"  id="email">
+                </div>
+                <div class="input__box">
+                    <span class="details">Phone Number<span style="color: red !important; display: inline; float: none;">*</span></span>
+                    <input type="tel" placeholder="Phone Number" id="phone" >
+                </div>
+                <div class="input__box">
+                    <span class="details">Password<span style="color: red !important; display: inline; float: none;">*</span></span>
+                    <input type="password" placeholder="********"  id="password">
+                </div>
+                <div class="input__box">
+                    <span class="details">Confirm Password<span style="color: red !important; display: inline; float: none;">*</span></span>
+                    <input type="password" placeholder="********"  id="cpassword">
+                </div>
+                <div class="input__box">
+                    <span class="details">City<span style="color: red !important; display: inline; float: none;">*</span></span>
+                    <input type="text" placeholder="City"  >
+                </div>
+                <div class="input__box">
+                    <span class="details">Pin Code<span style="color: red !important; display: inline; float: none;">*</span></span>
+                    <input type="number" placeholder="Pin Code" >
+                </div> 
+                <div class="input__box">
+                        <span class="details">State<span style="color: red !important; display: inline; float: none;">*</span></span>
+                        <select id="state" class="form-select">
+                            <option>_</option>
+                        </select>
+                </div>
+
+                <div class="input__box">
+                        <span class="details">Country<span style="color: red !important; display: inline; float: none;">*</span></span>
+                        <select id="country" class="form-select">
+                        <option>select country</option>
+                        </select>
+                </div>
+            </div>
+            <div class="gender__details">
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <input type="radio" name="gender" id="dot-3">
+                <span class="gender__title">Gender<span style="color: red !important; display: inline; float: none;">*</span></span>
+                    <div class="category">
+                        <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span>Male</span>
+                        </label>
+                        <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span>Female</span>
+                        </label>
+                        <label for="dot-3">
+                        <span class="dot three"></span>
+                        <span>Prefer not to say</span>
+                        </label>
+                    </div>
+            </div>
+        <div class="button" id="submitbtn">
+            <input type="submit" value="Register">
+        </div>
+        <div class="button">
+            <input type="reset" value="Reset">
+        </div> 
+        </form>
+</div>
+
+<script>
+// user country code for selected option
+var user_country_code = "IN";
+
+(() => {
+    // script https://www.html-code-generator.com/html/drop-down/state-name
+
+    // Get the country name and state name from the imported script.
+    const country_array = country_and_states.country;
+    const states_array = country_and_states.states;
+
+    const id_state_option = document.getElementById("state");
+    const id_country_option = document.getElementById("country");
+
+    const createCountryNamesDropdown = () => {
+        let option =  '';
+        option += '<option value="">select country</option>';
+
+        for(let country_code in country_array){
+            // set selected option user country
+            let selected = (country_code == user_country_code) ? ' selected' : '';
+            option += '<option value="'+country_code+'"'+selected+'>'+country_array[country_code]+'</option>';
+        }
+        id_country_option.innerHTML = option;
+    };
+
+    const createStatesNamesDropdown = () => {
+        let selected_country_code = id_country_option.value;
+        // get state names
+        let state_names = states_array[selected_country_code];
+
+        // if invalid country code
+        if(!state_names){
+            id_state_option.innerHTML = '<option>select state</option>';
+            return;
+        }
+        let option = '';
+        option += '<select id="state">';
+        option += '<option>select state</option>';
+        for (let i = 0; i < state_names.length; i++) {
+            option += '<option value="'+state_names[i].code+'">'+state_names[i].name+'</option>';
+        }
+        option += '</select>';
+        id_state_option.innerHTML = option;
+    };
+
+    // country select change event
+    id_country_option.addEventListener('change', createStatesNamesDropdown);
+
+    createCountryNamesDropdown();
+    createStatesNamesDropdown();
+})();
+
+</script>
+<script>
+$(document).ready(function() {
+
+$('#first_form').submit(function(e) {
+  e.preventDefault();
+  var first_name = $('#first_name').val();
+  var last_name = $('#last_name').val();
+  var email = $('#email').val();
+  var phone = $('#phone').val
+  var password = $('#password').val();
+
+  $(".error").remove();
+
+  if (first_name.length < 2) {
+    $('#first_name').after('<span class="error" style="color: red">This field is required</span>');
+  }
+  if (last_name.length < 1) {
+    $('#last_name').after('<span class="error" style="color: red">This field is required</span>');
+  }
+  if (phone.length < 10) {
+    $('#phone').after('<span class="error" style="color: red">This field is required</span>');
+  } else {
+    var regEx = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+
+    var validphone = regEx.test(phone);
+    if (!validphone) {
+      $('#phone').after('<span class="error" style="color: red">Enter a valid email</span>');
+    }
+  }
+  if (email.length < 1) {
+    $('#email').after('<span class="error" style="color: red">This field is required</span>');
+  } else {
+    var regEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    var validEmail = regEx.test(email);
+    if (!validEmail) {
+      $('#email').after('<span class="error" style="color: red">Enter a valid email</span>');
+    }
+  }
+  if (password.length < 8) {
+    $('#password').after('<span class="error" style="color: red">Password must be at least 8 characters long</span>');
+  }
+});
+
+});
+</script>
+</body>
+</html>
