@@ -1,0 +1,27 @@
+Week 1 (Jan 2 - Jan 5):
+
+Training on JavaScript
+Learning about basic JavaScript functions
+
+
+Week 2 (Jan 8 - Jan 12):
+
+Training on jQuery
+Learning about basic jQuery functions, jQuery effects, jQuery traversing, and Ajax
+Exploring additional tools like slick slider carousels, flatpickr datetime picker, model, and owl-carousel
+
+
+Week 3 (Jan 16 - Jan 20):
+
+Training on React.js
+Task: Building a todo app
+
+
+Week 4 (Jan 22 - Jan 25):
+
+Continuing training on React.js
+Tasks: Creating a registration form, storing data on local storage, rendering data from local storage into a table, implementing add, edit, and delete options for the table, rendering data from an external file and storing it into a table, utilizing a model to display data
+
+Week 5 (Jan 29 - Feb 2):
+
+Learning about JavaScript validation and validation plugins
