@@ -1,5 +1,4 @@
 import './App.css';
-
 import Weather from './Components/Weather';
 
 function App() {
@@ -8,6 +7,7 @@ function App() {
         <Weather />
     </div>
 
+   
   );
 }
 

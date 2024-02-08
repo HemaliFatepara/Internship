@@ -1,6 +1,6 @@
 import { Oval } from "react-loader-spinner";
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFrown } from "@fortawesome/free-solid-svg-icons";
 
@@ -82,7 +82,7 @@ function GfGWeatherApp() {
           name="query"
           value={input}
           onChange={(event) => setInput(event.target.value)}
-          onKeyPress={search}
+          // onKeyPress={search}
         />
       </div>
       {weather.loading && (

@@ -1,6 +1,7 @@
 Week 1 (Jan 2 - Jan 5):
 
 Training on JavaScript
+
 Learning about basic JavaScript functions
 
 
@@ -25,3 +26,5 @@ Tasks: Creating a registration form, storing data on local storage, rendering da
 Week 5 (Jan 29 - Feb 2):
 
 Learning about JavaScript validation and validation plugins
+Creating a registration form with all necessary validations
+

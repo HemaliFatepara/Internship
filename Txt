@@ -44,7 +44,13 @@ learn about javascript validation and validation plugin and make registration fo
 
 week -6 ()(feb 5 - 9)
 
-explore create-react-app documention
+explore create-react-app documention Development, Styles and Assets
+Building your App
+Testing
+Back-End Integration
+Deployment
+Advanced Usage
+Support
 
 Task: weather app using jQuery
 Task: weather app using react js and open weather api
