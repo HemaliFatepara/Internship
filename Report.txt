@@ -28,3 +28,22 @@ Week 5 (Jan 29 - Feb 2):
 Learning about JavaScript validation and validation plugins
 Creating a registration form with all necessary validations
 
+Week 6 (Feb 5 - Feb 9):
+
+React.js Development Exploration:
+    Explored create-react-app documentation to grasp React.js fundamentals.
+
+Weather App Implementation:
+    Built weather apps with jQuery and React.js using OpenWeather API.
+
+Interactive Counter Creation:
+    Developed counters with user input and functionalities like start, pause, reset.
+
+Utilized create-react-app:
+    Leveraged features for project setup, optimization, and advanced usage.
+
+Enhanced React.js Proficiency:
+    Strengthened understanding and practical skills for dynamic web app development.
+
+
+

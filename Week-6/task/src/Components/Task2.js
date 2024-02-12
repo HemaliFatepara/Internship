@@ -22,7 +22,7 @@ const Task2 = () => {
   }, [updated]);
 
   function Start() {
-    if (updated > 0) {
+    if (isActive === false && updated > 0) {
       setUpdated((updated) => updated - 1);
     } else if (updated === 0) {
       clearTimeout(timer);
@@ -30,10 +30,17 @@ const Task2 = () => {
   }
 
   function Pause() {
-    clearTimeout(timer);
+    if (isActive === false) {
+      setIsActive(true);
+      clearTimeout(timer);
+    } else if (updated > 0) {
+      setUpdated((updated) => updated - 1);
+      setIsActive(false);
+    }
   }
 
   function Reset() {
+    setIsActive(false);
     setInput("");
     setUpdated("");
     clearTimeout(timer);
@@ -47,6 +54,8 @@ const Task2 = () => {
     }
   };
 
+
+
   return (
     <div>
       <h3 className="font-sans text-4xl text-center text-neutral-950">
@@ -56,7 +65,7 @@ const Task2 = () => {
       <input
         type="number"
         max="59"
-        min="0"
+        min="1"
         onChange={handlechange}
         value={input}
         placeholder="Please enter value...."
@@ -72,20 +81,30 @@ const Task2 = () => {
       </div>
       <br />
       <br />
-  
 
       <button
         onClick={() => {
-          isActive ? Start() : (Start(), handleClick());
+          Start();
+          handleClick();
         }}
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        // disabled={isActive }
       >
         Start
       </button>
 
       <button
+        onClick={Pause}
+        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        disabled={updated === ''}
+      >
+        {isActive ? "resume" : "Pause"}
+      </button>
+
+      <button
         onClick={Reset}
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        disabled={updated === ''}
       >
         Reset
       </button>

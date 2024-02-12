@@ -1,56 +1,56 @@
-import { useState , useEffect } from "react";
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
-
-function App() {
-  let timer;
- 
-  const [count, setCount] = useState();
-  const [values, setValues] = useState();
-
-
-  const handleChange = (e) => {
-    setValues(parseInt(e.target.value));
-  };
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
-    if (count) {
-      timer = setTimeout(Start, 1000);
+    let intervalId;
+
+    if (isRunning) {
+      intervalId = setInterval(() => {
+        setCount((prevCount) => prevCount + 1);
+      }, 1000);
+    } else {
+      clearInterval(intervalId);
     }
-  }, [count]);
 
-  function Start() {
-      setCount(count => count + 1)
-  }
+    return () => clearInterval(intervalId);
+  }, [isRunning]);
 
-  function Pause(){
-    clearTimeout(timer);
-  }
+  const handleStart = () => {
+    setIsRunning(true);
+  };
 
-  function Reset () {
-    setCount(0)
-    clearTimeout(timer);
-  }
-  
+  const handlePause = () => {
+    
+
+    if(isRunning === true){
+      setIsRunning(false);
+    } else if (isRunning === false){
+      setCount((prevCount) => prevCount + 1);
+    }
+  };
+
+  const handleReset = () => {
+    setCount(0);
+    setIsRunning(false);
+  };
 
   return (
     <div>
-      <div>
-        <input type='text' id="visitors" onChange={handleChange} value={values}></input>
-        {/* <input type='text' id="visitors" onChange={handleChange} value={input_val} ></input> */}
-        <div>
-        <h1>{count}</h1>
-        <button onClick={Start}>Start</button>
-        <button onClick={Pause}>Pause</button>
-        <button onClick={Reset}>Reset</button>
-        </div>
-      </div>
+      <h1>Counter: {count}</h1>
+      <button onClick={handleStart} disabled={isRunning}>
+        Start
+      </button>
+      <button onClick={handlePause} >
+      {isRunning ? 'Pause' : 'resume'}
+      </button>
+      <button onClick={handleReset} disabled={count === 0 && !isRunning}>
+        Reset
+      </button>
     </div>
   );
-
- 
-
-
 }
 
-export default App;
+export default Counter;
