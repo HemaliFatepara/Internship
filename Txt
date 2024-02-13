@@ -1,0 +1,6 @@
+Build Search filter in React
+React code to build a simple search filter functionality to display a filtered list based on the search query entered by the user.
+
+todo app with complte not complte buttons and filter accordind catagory
+
+appointment booking form with useForm is a custom hook for managing forms with ease and custom valiadtion msg's and model on submission 

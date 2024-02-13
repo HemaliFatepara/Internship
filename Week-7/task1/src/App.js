@@ -12,7 +12,9 @@ function Task({ task, index, completeTask, removeTask }) {
       <button style={{ background: "red" }} onClick={() => removeTask(index)}>
         x
       </button>
-      <button onClick={() => completeTask(index)}>{task.completed ? "Not Completed" : "Completed"}</button>
+      <button onClick={() => completeTask(index)}>
+        {task.completed ? "Not Completed" : "Completed"}
+      </button>
     </div>
   );
 }
@@ -26,7 +28,7 @@ function CreateTask({ addTask }) {
     addTask(value);
     setValue("");
   };
-  
+
   return (
     <div className="task">
       <form>
@@ -46,20 +48,7 @@ function CreateTask({ addTask }) {
 }
 
 function Todo() {
-  const [tasks, setTasks] = useState([
-    {
-      title: "Grab some Pizza",
-      completed: true,
-    },
-    {
-      title: "Do your workout",
-      completed: true,
-    },
-    {
-      title: "Hangout with friends",
-      completed: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   const addTask = (title) => {
     const newTasks = [...tasks, { title, completed: false }];
@@ -88,27 +77,43 @@ function Todo() {
       <div className="tasks-container">
         <div className="tasks incomplete-tasks">
           <h2>Incomplete Tasks</h2>
-          {incompleteTasks.map((task, index) => (
-            <Task
-              task={task}
-              index={index}
-              completeTask={completeTask}
-              removeTask={removeTask}
-              key={index}
-            />
-          ))}
+          {incompleteTasks?.length > 0 ? (
+            <div>
+              {incompleteTasks.map((task, index) => (
+                <Task
+                  task={task}
+                  index={index}
+                  completeTask={completeTask}
+                  removeTask={removeTask}
+                  key={index}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="empty">
+              <p>No task found</p>
+            </div>
+          )}
         </div>
         <div className="tasks completed-tasks">
           <h2>Completed Tasks</h2>
-          {completedTasks.map((task, index) => (
-            <Task
-              task={task}
-              index={index}
-              completeTask={completeTask}
-              removeTask={removeTask}
-              key={index}
-            />
-          ))}
+          {completedTasks?.length > 0 ? (
+            <div>
+              {completedTasks.map((task, index) => (
+                <Task
+                  task={task}
+                  index={index}
+                  completeTask={completeTask}
+                  removeTask={removeTask}
+                  key={index}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="empty">
+              <p>No task found</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
