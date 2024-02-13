@@ -1,16 +1,25 @@
-// import './App.css';
-// import Navbar from './Components/Navbar';
+import './App.css';
+import Navbar from './Components/Navbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import DoctorDashboard from './Components/DoctorDashboard';
 import Book from './Components/Book';
+
+
+
 function App() {
   return (
-    <div >
-      {/* <div>
+    <>
+
+      <BrowserRouter>
         <Navbar />
-      </div> */}
-      <div>
-        <Book />
-      </div>
-    </div>
+        <Routes>
+          <Route exact path="/" element={<DoctorDashboard />} />
+          <Route exact path="/book" element={<Book />} />
+
+        </Routes>
+
+      </BrowserRouter>
+    </>
   );
 }
 

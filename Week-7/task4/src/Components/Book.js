@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-function App() {
+import { Link } from 'react-router-dom';
+function Book() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
-  const [formdata, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
@@ -29,10 +30,9 @@ function App() {
     setShowModal(false);
   };
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formdata, [name]: value });
+    setFormData({ ...formData, [name]: value });
     setErrors({ ...errors, [name]: validateField(name, value) });
   };
 
@@ -41,7 +41,16 @@ function App() {
 
     const isValid = validate();
     if (isValid) {
-      console.log("Form data:", formdata);
+      // Retrieve existing form data array from local storage
+      const existingFormData = JSON.parse(localStorage.getItem("formDataArray")) || [];
+      
+      // Append new form data to the existing array
+      const updatedFormDataArray = [...existingFormData, formData];
+      
+      // Store the updated array back into local storage
+      localStorage.setItem("formDataArray", JSON.stringify(updatedFormDataArray));
+
+      console.log("Form data array:", updatedFormDataArray);
       setSubmitted(true);
       setShowModal(true);
     }
@@ -78,8 +87,8 @@ function App() {
 
   const validate = () => {
     let isValid = true;
-    for (const key in formdata) {
-      const fieldError = validateField(key, formdata[key]);
+    for (const key in formData) {
+      const fieldError = validateField(key, formData[key]);
       setErrors((prevErrors) => ({ ...prevErrors, [key]: fieldError }));
       if (fieldError) isValid = false;
     }
@@ -87,7 +96,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="container mx-auto px-4">
       {submitted && (
         <div
           className={`fixed z-10 inset-0 overflow-y-auto ${
@@ -151,13 +160,12 @@ function App() {
                 >
                   Book another appointment
                 </button>
-                <button
-                  onClick={() => setShowModal(false)}
-                  type="button"
-                  className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                >
-                  Close
-                </button>
+                <Link
+  to="/" // Change this to the desired URL of the home page
+  className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+>
+  Close
+</Link>
               </div>
             </div>
           </div>
@@ -182,8 +190,9 @@ function App() {
               type="text"
               placeholder="Enter your name"
               onChange={handleChange}
-              value={formdata.name}
+              value={formData.name} // Corrected from FormData.name to formData.name
             />
+
             {errors.name && (
               <p className="text-sm text-red-800">{errors.name}</p>
             )}
@@ -203,7 +212,7 @@ function App() {
               type="email"
               placeholder="Enter your email"
               onChange={handleChange}
-              value={formdata.email}
+              value={formData.email}
             />
             {errors.email && (
               <p className="text-sm text-red-800">{errors.email}</p>
@@ -224,7 +233,7 @@ function App() {
               type="tel"
               placeholder="Enter your phone number"
               onChange={handleChange}
-              value={formdata.phone}
+              value={formData.phone}
             />
             {errors.phone && (
               <p className="text-sm text-red-800">{errors.phone}</p>
@@ -245,7 +254,7 @@ function App() {
               type="date"
               placeholder="Select a date"
               onChange={handleChange}
-              value={formdata.date}
+              value={formData.date}
             />
             {errors.date && (
               <p className="text-sm text-red-800">{errors.date}</p>
@@ -266,7 +275,7 @@ function App() {
               name="time"
               placeholder="Select a time"
               onChange={handleChange}
-              value={formdata.time}
+              value={formData.time}
             />
             {errors.time && (
               <p className="text-sm text-red-800">{errors.time}</p>
@@ -285,7 +294,7 @@ function App() {
               id="service"
               name="service"
               onChange={handleChange}
-              value={formdata.service}
+              value={formData.service}
             >
               <option value="">Select a Doctor </option>
               <option value="Dr. SachSanjay deva">Dr. SachSanjay deva</option>
@@ -318,7 +327,7 @@ function App() {
               name="msg"
               placeholder="Enter any additional information"
               onChange={handleChange}
-              value={formdata.msg}
+              value={formData.msg}
             ></textarea>
             {errors.msg && <p className="text-sm text-red-800">{errors.msg}</p>}
           </div>
@@ -337,4 +346,4 @@ function App() {
   );
 }
 
-export default App;
+export default Book;
