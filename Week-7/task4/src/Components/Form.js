@@ -1,18 +1,18 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-import { Link } from 'react-router-dom';
-function Book() {
+function Form() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    date: "",
-    time: "",
-    service: "",
-    msg: "",
+    Name: "",
+    Email: "",
+    Phone: "",
+    Date: "",
+    Time: "",
+    Doctorname : "",
+    Purpose: "",
   });
 
   const resetForm = () => {
@@ -42,13 +42,17 @@ function Book() {
     const isValid = validate();
     if (isValid) {
       // Retrieve existing form data array from local storage
-      const existingFormData = JSON.parse(localStorage.getItem("formDataArray")) || [];
-      
+      const existingFormData =
+        JSON.parse(localStorage.getItem("formDataArray")) || [];
+
       // Append new form data to the existing array
       const updatedFormDataArray = [...existingFormData, formData];
-      
+
       // Store the updated array back into local storage
-      localStorage.setItem("formDataArray", JSON.stringify(updatedFormDataArray));
+      localStorage.setItem(
+        "formDataArray",
+        JSON.stringify(updatedFormDataArray)
+      );
 
       console.log("Form data array:", updatedFormDataArray);
       setSubmitted(true);
@@ -77,7 +81,7 @@ function Book() {
     } else if (fieldName === "time") {
       if (!value.trim()) error = "Time cannot be empty";
     } else if (fieldName === "service") {
-      if (!value.trim()) error = "Service cannot be empty";
+      if (!value.trim()) error = "Doctor name cannot be empty";
     } else if (fieldName === "msg") {
       if (!value.trim()) error = "Message cannot be empty";
     }
@@ -119,7 +123,7 @@ function Book() {
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div className="sm:flex sm:items-start">
                   <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
-                    {/* Heroicon name: check */}
+               
                     <svg
                       className="h-6 w-6 text-green-600"
                       xmlns="http://www.w3.org/2000/svg"
@@ -161,11 +165,11 @@ function Book() {
                   Book another appointment
                 </button>
                 <Link
-  to="/" // Change this to the desired URL of the home page
-  className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
->
-  Close
-</Link>
+                  to="/" 
+                  className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                >
+                  Close
+                </Link>
               </div>
             </div>
           </div>
@@ -186,11 +190,11 @@ function Book() {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="name"
-              name="name"
+              name="Name"
               type="text"
               placeholder="Enter your name"
               onChange={handleChange}
-              value={formData.name} // Corrected from FormData.name to formData.name
+              value={formData.name} 
             />
 
             {errors.name && (
@@ -208,7 +212,7 @@ function Book() {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="email"
-              name="email"
+              name="Email"
               type="email"
               placeholder="Enter your email"
               onChange={handleChange}
@@ -229,7 +233,7 @@ function Book() {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="phone"
-              name="phone"
+              name="Phone"
               type="tel"
               placeholder="Enter your phone number"
               onChange={handleChange}
@@ -250,7 +254,7 @@ function Book() {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="date"
-              name="date"
+              name="Date"
               type="date"
               placeholder="Select a date"
               onChange={handleChange}
@@ -272,7 +276,7 @@ function Book() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="time"
               type="time"
-              name="time"
+              name="Time"
               placeholder="Select a time"
               onChange={handleChange}
               value={formData.time}
@@ -292,7 +296,7 @@ function Book() {
             <select
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="service"
-              name="service"
+              name="Doctorname"
               onChange={handleChange}
               value={formData.service}
             >
@@ -306,7 +310,9 @@ function Book() {
               <option value="Dr. SKS Marya">Dr. SKS Marya</option>
               <option value="Dr. Gaurav Kharya">Dr. Gaurav Kharya</option>
               <option value="Dr. Ankur Bahl">Dr. Ankur Bahl</option>
-              <option value="Dr. Amandeep Singh Dhillon">Dr. Amandeep Singh Dhillon</option>
+              <option value="Dr. Amandeep Singh Dhillon">
+                Dr. Amandeep Singh Dhillon
+              </option>
             </select>
             {errors.service && (
               <p className="text-sm text-red-800">{errors.service}</p>
@@ -318,13 +324,13 @@ function Book() {
               className="block text-gray-700 font-bold mb-2"
               htmlFor="message"
             >
-              Purpose of Visit 
+              Purpose of Visit
             </label>
             <textarea
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="message"
               rows="4"
-              name="msg"
+              name="Purpose"
               placeholder="Enter any additional information"
               onChange={handleChange}
               value={formData.msg}
@@ -346,4 +352,4 @@ function Book() {
   );
 }
 
-export default Book;
+export default Form;

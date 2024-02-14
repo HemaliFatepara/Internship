@@ -1,8 +1,8 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DoctorDashboard from './Components/DoctorDashboard';
-import Book from './Components/Book';
+import Dashboard from './Components/Dashboard';
+import Form from './Components/Form';
 
 
 
@@ -13,8 +13,8 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<DoctorDashboard />} />
-          <Route exact path="/book" element={<Book />} />
+          <Route exact path="/" element={<Dashboard />} />
+          <Route exact path="/book" element={<Form />} />
 
         </Routes>
 
