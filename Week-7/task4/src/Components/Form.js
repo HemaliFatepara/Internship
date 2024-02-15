@@ -17,13 +17,13 @@ function Form() {
 
   const resetForm = () => {
     setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      date: "",
-      time: "",
-      service: "",
-      msg: "",
+      Name: "",
+      Email: "",
+      Phone: "",
+      Date: "",
+      Time: "",
+      Doctorname : "",
+      Purpose: "",
     });
     setSubmitted(false);
     setErrors({});
@@ -194,7 +194,7 @@ function Form() {
               type="text"
               placeholder="Enter your name"
               onChange={handleChange}
-              value={formData.name} 
+              value={formData.Name} 
             />
 
             {errors.name && (
@@ -216,7 +216,7 @@ function Form() {
               type="email"
               placeholder="Enter your email"
               onChange={handleChange}
-              value={formData.email}
+              value={formData.Email}
             />
             {errors.email && (
               <p className="text-sm text-red-800">{errors.email}</p>
@@ -237,7 +237,7 @@ function Form() {
               type="tel"
               placeholder="Enter your phone number"
               onChange={handleChange}
-              value={formData.phone}
+              value={formData.Phone}
             />
             {errors.phone && (
               <p className="text-sm text-red-800">{errors.phone}</p>
@@ -258,7 +258,7 @@ function Form() {
               type="date"
               placeholder="Select a date"
               onChange={handleChange}
-              value={formData.date}
+              value={formData.Date}
             />
             {errors.date && (
               <p className="text-sm text-red-800">{errors.date}</p>
@@ -279,7 +279,7 @@ function Form() {
               name="Time"
               placeholder="Select a time"
               onChange={handleChange}
-              value={formData.time}
+              value={formData.Time}
             />
             {errors.time && (
               <p className="text-sm text-red-800">{errors.time}</p>
@@ -298,7 +298,7 @@ function Form() {
               id="service"
               name="Doctorname"
               onChange={handleChange}
-              value={formData.service}
+              value={formData.Doctorname}
             >
               <option value="">Select a Doctor </option>
               <option value="Dr. SachSanjay deva">Dr. SachSanjay deva</option>
@@ -333,7 +333,7 @@ function Form() {
               name="Purpose"
               placeholder="Enter any additional information"
               onChange={handleChange}
-              value={formData.msg}
+              value={formData.Purpose}
             ></textarea>
             {errors.msg && <p className="text-sm text-red-800">{errors.msg}</p>}
           </div>

@@ -5,3 +5,43 @@ todo app with complte not complte buttons and filter accordind catagory
 
 appointment booking form with useForm is a custom hook for managing forms with ease and custom valiadtion msg's and model on submission 
 
+Make a appoinment book site 
+
+which has booking form , dadhboard , login and signup page 
+
+user flow on landing page he get login page also on top right corner has option to signup 
+if any user resgister or login to site he has 2 option book appoinment and dashboard
+in book appoinment there willl be form 
+and and in dashboard he has info of his appoinment 
+
+if admin login he  has dashboard which display all data 
+
+all data of site will be store and retrive from localstore 
+
+Landing Page:
+
+Display a login form.
+Provide a signup option in the top right corner.
+Login Page:
+
+Allow existing users to login.
+After successful login, redirect users to either the booking appointment page or the dashboard based on their role (user or admin).
+Signup Page:
+
+Allow new users to register.
+After successful signup, redirect users to either the booking appointment page or the dashboard based on their role (user or admin).
+Booking Appointment Page:
+
+Display a form where users can book appointments.
+Collect necessary information such as date, time, reason for appointment, etc.
+Submit the form to store the appointment data.
+Dashboard:
+
+For regular users:
+Display information about their upcoming appointments.
+For admin users:
+Display all appointment data.
+Allow admin users to manage appointments (edit, delete, etc.).
+Local Storage:
+
+Store user authentication tokens and appointment data in local storage to maintain user sessions and persist data.
