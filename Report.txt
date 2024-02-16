@@ -45,5 +45,18 @@ Utilized create-react-app:
 Enhanced React.js Proficiency:
     Strengthened understanding and practical skills for dynamic web app development.
 
+Week 7 (Feb 12 - Feb 16):
 
+
+Appointment Booking Website:
+
+    Objective: Develop a user-friendly appointment booking website with seamless authentication and intuitive dashboard functionality.
+
+Search Filter Component in React:
+
+    Objective: Create a reusable search filter component in React to enhance data exploration and facilitate efficient search operations across datasets.
+
+Task Management Application:
+
+    Objective: Build a task management application with intuitive task organization, complete with filtering and sorting capabilities for enhanced productivity.
 

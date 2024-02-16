@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUserDoctor } from "react-icons/fa6";
-
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+  const navigate = useNavigate();
   const [formdata, setFormData] = useState({
     name: "",
     email: "",
@@ -20,7 +21,9 @@ const Register = () => {
       JSON.parse(localStorage.getItem("logindata")) || [];
     const updatedFormDataArray = [...existingFormData, formdata];
     localStorage.setItem("logindata", JSON.stringify(updatedFormDataArray));
-    console.log("Form data array:", updatedFormDataArray);
+    localStorage.setItem("isLoggedIn", "user");
+    navigate("/userd");
+    localStorage.setItem("currentuser", formdata.email);
   };
 
   return (
@@ -50,7 +53,7 @@ const Register = () => {
                 for="email"
                 class="block text-sm font-medium leading-6 text-gray-900"
               >
-                User name 
+                User name
               </label>
               <div class="mt-2">
                 <input
@@ -119,7 +122,7 @@ const Register = () => {
           </form>
 
           <p class="mt-10 text-center text-sm text-gray-500">
-          Already have an account? 
+            Already have an account?
             <Link
               to="/"
               class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
