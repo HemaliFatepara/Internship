@@ -43,23 +43,25 @@ const Designation = () => {
   }, []);
 
   const handledelete = (e) => {
-
     e.preventDefault();
-
+  
     if (selectedDeg) {
+    
       const updatedDataArray = formDataArray.filter(
         (formData) => formData.designation !== selectedDeg
       );
+  
       setFormDataArray(updatedDataArray);
       localStorage.setItem("designation", JSON.stringify(updatedDataArray));
       
-      const update = formDataArray.map((formData) => formData.designation === selectedDeg)
-     
-      setFormDataArray(update);
-      localStorage.setItem("Empdata", JSON.stringify(update));
-      
-      
-    } 
+      const storedEmpData = JSON.parse(localStorage.getItem("Empdata")) || [];
+  
+      const updatedEmpDataArray = storedEmpData.filter(
+        (formData) => formData.designation !== selectedDeg
+      );
+  
+      localStorage.setItem("Empdata", JSON.stringify(updatedEmpDataArray));
+    }
   };
   
 
