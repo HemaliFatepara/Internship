@@ -1,2 +1,13 @@
 employee site 
 explore ant-design components
+
+"name"
+"email"
+"phonenumber"
+"country"
+"address"
+"city"
+"region"
+"postalcode"
+"password"
+"confirmpassword"
