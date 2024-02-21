@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const Emp = () => {
   const [formDataArray, setFormDataArray] = useState([]);
+  const [errors , setErrors] = useState({})
   const [FormData, setFormData] = useState({
     email: "",
     first_name: "",
@@ -24,15 +25,59 @@ const Emp = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...FormData, [name]: value });
+    setErrors({ ...errors, [name]: validateField(name, value) });
+  };
+
+  const validateField = (filedName , value) => {
+    const name_regx = /^[a-zA-Z.\-_]{1,30}$/;
+    const email_regx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phone_regx = /^\d{10}$/;
+    let error = "";
+
+    if (filedName === "email") {
+      if(!value.trim()) error = "Email cannot be empty";
+      else if (!email_regx.test(value))
+      error = "Invalid email format"
+    } else if (filedName === "first_name") {
+      if (!value.trim()) error = "First name cannot be empty";
+      else if (!name_regx.test(value))
+      error = "Only alphabets, dots, hyphens, and underscores are allowed";
+    } else if (filedName === "last_name") {
+      if (!value.trim()) error = "Last name cannot be empty";
+      else if (!name_regx.test(value))
+      error = "Only alphabets, dots, hyphens, and underscores are allowed";
+    } else if (filedName === "phone") {
+      if(!value.trim()) error = "Phone number cannot be empty"
+      else if (!phone_regx.test(value))
+      error = "Invalid phone number format";
+    } else if (filedName === "designation") {
+      if(!value.trim()) error = "Designation cannot be empty"
+    }
+    return error;
+  }
+
+
+  const validate = () => {
+    let isValid = true;
+    for (const key in FormData) {
+      const fieldError = validateField(key, FormData[key]);
+      setErrors((prevErrors) => ({ ...prevErrors, [key]: fieldError }));
+      if (fieldError) isValid = false;
+    }
+    return isValid;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const isVaild = validate()
 
-    const existingFormData = JSON.parse(localStorage.getItem("Empdata")) || [];
-    const updatedFormDataArray = [...existingFormData, FormData];
+    if (isVaild) {
+      const existingFormData = JSON.parse(localStorage.getItem("Empdata")) || [];
+      const updatedFormDataArray = [...existingFormData, FormData];
+  
+      localStorage.setItem("Empdata", JSON.stringify(updatedFormDataArray));
+    }
 
-    localStorage.setItem("Empdata", JSON.stringify(updatedFormDataArray));
     setFormData({
       email: "",
       first_name: "",
@@ -40,6 +85,7 @@ const Emp = () => {
       phone: "",
       designation: "",
     });
+  
   };
 
   return (
@@ -53,11 +99,13 @@ const Emp = () => {
             name="email"
             id="floating_email"
             placeholder="Email address"
-            required
             onChange={handleChange}
             value={FormData.email}
             className="block w-full px-4 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
+           {errors.email && (
+              <p className="text-sm text-red-800">{errors.email}</p>
+            )}
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -66,11 +114,13 @@ const Emp = () => {
               name="first_name"
               id="floating_first_name"
               placeholder="First name"
-              required
               onChange={handleChange}
               value={FormData.first_name}
               className="block w-full px-4 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
+             {errors.first_name && (
+              <p className="text-sm text-red-800">{errors.first_name}</p>
+            )}
           </div>
           <div>
             <input
@@ -78,11 +128,13 @@ const Emp = () => {
               name="last_name"
               id="floating_last_name"
               placeholder="Last name"
-              required
               onChange={handleChange}
               value={FormData.last_name}
               className="block w-full px-4 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
+             {errors.last_name && (
+              <p className="text-sm text-red-800">{errors.last_name}</p>
+            )}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -92,11 +144,13 @@ const Emp = () => {
               name="phone"
               id="floating_phone"
               placeholder="Phone number "
-              required
               onChange={handleChange}
               value={FormData.phone}
               className="block w-full px-4 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
+             {errors.phone && (
+              <p className="text-sm text-red-800">{errors.phone}</p>
+            )}
           </div>
           <div>
             <select
@@ -113,6 +167,9 @@ const Emp = () => {
                 </option>
               ))}
             </select>
+            {errors.designation && (
+              <p className="text-sm text-red-800">{errors.designation}</p>
+            )}
           </div>
         </div>
         <button
